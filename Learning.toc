@@ -60,9 +60,10 @@
 \contentsline {subsection}{\numberline {6.3.1}Dubins path}{48}{subsection.6.3.1}
 \contentsline {subsection}{\numberline {6.3.2}Bezier曲线 和 B-spline曲线}{48}{subsection.6.3.2}
 \contentsline {subsection}{\numberline {6.3.3}其他形式曲线}{49}{subsection.6.3.3}
-\contentsline {chapter}{\numberline {7}LeetCode}{50}{chapter.7}
-\contentsline {section}{\numberline {7.1}数论}{50}{section.7.1}
-\contentsline {subsection}{\numberline {7.1.1}Power of Three}{50}{subsection.7.1.1}
-\contentsline {section}{\numberline {7.2}树}{50}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Recover Binary Search Tree}{50}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {6.3.4}多项式轨迹}{49}{subsection.6.3.4}
+\contentsline {chapter}{\numberline {7}LeetCode}{51}{chapter.7}
+\contentsline {section}{\numberline {7.1}数论}{51}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Power of Three}{51}{subsection.7.1.1}
+\contentsline {section}{\numberline {7.2}树}{51}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Recover Binary Search Tree}{51}{subsection.7.2.1}
 \contentsfinish 

@@ -242,3 +242,54 @@ RRT*算法在每一步搜索中都需要寻找$q_\rm{new}$的邻域节点，这�
 
 PH曲线是一种具有有理特性的参数化多项式曲线。具体计算可以根据师姐论文中的方法，在复平面内进行计算。
 
+\subsection{多项式轨迹}
+通过路径搜索算法可以找到一系列的离散路径点，通过多项式曲线将这些点连接起来形成多项式轨迹。本节的主要算法参考\href{https://pdfs.semanticscholar.org/2376/078d13761387cabb933798b93a706c2ea7ef.pdf}{\texttt{论文A}}
+和\href{http://www-personal.acfr.usyd.edu.au/spns/cdm/papers/Mellinger.pdf}{\texttt{论文B}}。其中对于多项式轨迹的基本内容可以阅读教材 Trajectory Planning for Automatic Machines and Robots Springer 第二章中的相关部分。
+
+对于本节的多项式轨迹生成问题，可以转化为求解一个二次规划(QP, Quadratic Program)问题。
+假设多项式的系数可以表示为$\bm{p} = [p_0, p_1, \cdots, p_n]^T$,多项式函数为$P(t)$ 那么采用论文A中的目标函数：
+
+\begin{equation}
+    J(T) = \int_0^T c_0 P(t)^2 + c_1 P'(t)^2 + c_2 P''(t)^2 + \cdots + c_N P^{(N)}(t)^2 \dd t = \bm{p}^T Q(T) \bm{p}
+\end{equation}
+其中，$Q(T)$ 为Hessian矩阵，可以通过简单的微积分运算求解。$T$表示每一段多项式轨迹的总时间。
+对于M+1个离散路径点，共需要生成M段多项式轨迹，这样总的目标函数可以表示为：
+
+\begin{equation}
+J_{total} = \begin{bmatrix} \bm{p}_1 \\ \vdots \\ \bm{p}_M \end{bmatrix}^T 
+ \begin{bmatrix} Q_1(T_1) & & \\ & \ddots & \\ & & Q_M(T_M) \end{bmatrix}
+ \begin{bmatrix} \bm{p}_1 \\ \vdots \\ \bm{p}_M \end{bmatrix}^T 
+\end{equation}
+
+对于二次规划问题可以通过现成的工具箱进行求解，所以剩下的问题就是如何将轨迹生成中的边界约束转化为二次规划的约束形式。
+{\color{red}此外需要注意的是上述目标函数中需要指定每一段的轨迹时间，这些时间量可以作为上一层优化问题的优化变量。}
+
+从无人机飞行动力学考虑，一种合理的假设是飞行过程中无人机位置、速度、加速度是连续变化的，每一段的边界条件也是位置、速度、加速度这三个变量。
+那么对于任意一段多项式轨迹，初始边界条件3个，终端边界条件3个，因此需要最少5次多项式（6个系数）才能满足所有边界条件。对每一段多项式的边界条件可以描述为：
+\begin{equation}
+    \bm{A}_i \bm{p}_i = \bm{d}_i
+\end{equation}
+对于5次多项式，考虑P、V、A三项边界时，上述三项展开为：
+\begin{equation}
+    \bm{A}_i = \begin{bmatrix}
+        1   & t_0   & t_0^2     & t_0^3     & t_0^4     & t_0^5 \\
+        0   & 1     & 2 t_0     & 3 t_0^2   & 4 t_0^3   & 5 t_0^4 \\
+        0   & 0     & 2         & 6 t_0     & 12 t_0^2  & 20 t_0^3 \\
+        1   & t_T   & t_T^2     & t_T^3     & t_T^4     & t_T^5 \\
+        0   & 1     & 2 t_T     & 3 t_T^2   & 4 t_T^3   & 5 t_T^4 \\
+        0   & 0     & 2         & 6 t_T     & 12 t_T^2  & 20 t_T^3 
+    \end{bmatrix}
+\end{equation}
+
+\begin{equation}
+    \bm{d}_i = [P_0, \, V_0, \, A_0, \, P_T, \, V_T, \, A_T]^T
+\end{equation}
+
+在实际规划过程中，常常并不知道无人机到达中间离散路径点位置时的速度、加速度，因此需要使用连续边界条件，即
+\begin{equation}
+    A_{T,i} \bm{p}_i = A_{0,i+1} \bm{p}_{i+1}
+\end{equation}
+
+
+
+

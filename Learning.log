@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.5.11)  27 SEP 2018 11:06
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.5.11)  27 SEP 2018 20:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3091,30 +3091,35 @@ Overfull \hbox (3.22418pt too wide) detected at line 62
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 63
- \TU/ppl/m/n/12 50
+ \TU/ppl/m/n/12 49
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 64
- \TU/ppl/m/n/12 50
+ \TU/ppl/m/n/12 51
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 65
- \TU/ppl/m/n/12 50
+ \TU/ppl/m/n/12 51
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 66
+ \TU/ppl/m/n/12 51
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-Overfull \hbox (3.22418pt too wide) detected at line 66
- \TU/ppl/m/n/12 50
+Overfull \hbox (3.22418pt too wide) detected at line 67
+ \TU/ppl/m/n/12 51
  []
 
 
-Overfull \hbox (3.22418pt too wide) detected at line 67
- \TU/ppl/m/n/12 50
+Overfull \hbox (3.22418pt too wide) detected at line 68
+ \TU/ppl/m/n/12 51
  []
 
 )
@@ -3368,7 +3373,11 @@ File: figures/Dubins.png Graphic file (type bmp)
 <figures/Dubins.png>
  [48
 
-]) [49]
+]
+Underfull \vbox (badness 2460) has occurred while \output is active []
+
+ [49])
+[50]
 \openout2 = `body/LeetCode.aux'.
 
  (./body/LeetCode.tex
@@ -3381,28 +3390,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--32
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [50
+ [51
 
 
 
 ])
-[51] [52
-
-
-
-]
+[52]
 \tf@thm=\write7
 \openout7 = `Learning.thm'.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 78.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 78.
- (./Learning.aux (./body/PX4.aux) (./body/ros.aux) (./body/python.aux) (./body/
-estimator.aux) (./body/path.aux) (./body/planning.aux)
+ (./Learning.aux (./body/PX4.aux) (./body/ros.aux) (./body/python.aux)
+(./body/estimator.aux) (./body/path.aux) (./body/planning.aux)
 (./body/LeetCode.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 78.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 78.
 Package rerunfilecheck Info: File `Learning.out' has not changed.
-(rerunfilecheck)             Checksum: 909E9DD516AC3ECEB38A4C80A3F1A412.
+(rerunfilecheck)             Checksum: F165D71DC9B7F8D3FCE1EC82930FFFEA.
 
 
 LaTeX Font Warning: Size substitutions with differences
