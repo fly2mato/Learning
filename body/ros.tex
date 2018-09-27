@@ -1,0 +1,46 @@
+\chapter{ROS}
+\section{基础}
+\subsection{创建工作空间}
+\begin{lstlisting}[language=bash,numbers=left,firstnumber = 1,numberstyle=\tiny,breaklines = true,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20}]
+mkdir -p ~/workspace/src
+cd ~/workspace
+catkin_make
+source devel/setup.bash
+\end{lstlisting}
+
+\subsection{创建一个pkg}
+\begin{lstlisting}[language=bash,numbers=left,firstnumber = 1,numberstyle=\tiny,breaklines = true,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20}]
+cd ~/workspace/src
+catkin_create_pkg pkgname std_msgs rospy roscpp
+cd ~/workspace
+catkin_make
+\end{lstlisting}
+
+
+
+
+
+
+
+\subsection{编译git上的pkg}
+1. 创建一个空的文件夹作为工作空间目录
+
+2. git clone 待使用的目标package
+
+3. 在工作空间目录下，使用\texttt{catkin_make --source pkgname}进行编译
+
+4. （似乎可以忽略）使用\texttt{catkin_make install --source pkgname}安装。
+
+5. 使用\texttt{source devel/setup.bash}读取当前工作空间的环境变量。
+
+
+
+
+\subsection{问题及解决方案}
+编译报错：ModuleNotFoundError: No module named 'em'
+使用 "～\$ pip install em"
+编译继续报错：AttributeError: module 'em' has no attribute 'Interpreter'
+解决：
+
+pip uninstall em
+pip install empy

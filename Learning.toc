@@ -1,0 +1,68 @@
+\contentsline {chapter}{目 \hskip 1em\relax 录}{III}{chapter*.1}
+\contentsline {chapter}{\numberline {1}PX4}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}编译}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}软件在环仿真SIL}{4}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}启动流程}{4}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}jMAVSim 初始化}{9}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}PX4 SITL 初始化}{9}{subsection.1.2.3}
+\contentsline {subsubsection}{\numberline {1.2.3.1}simulator 模块流程}{12}{subsubsection.1.2.3.1}
+\contentsline {subsubsection}{\numberline {1.2.3.2}gyrosim等虚拟传感器 模块流程}{12}{subsubsection.1.2.3.2}
+\contentsline {subsubsection}{\numberline {1.2.3.3}pwm_out_sim与mixer模块流程}{13}{subsubsection.1.2.3.3}
+\contentsline {subsubsection}{\numberline {1.2.3.4}MAVLink 解析}{15}{subsubsection.1.2.3.4}
+\contentsline {subsubsection}{\numberline {1.2.3.5}其他 MAVLink 问题}{15}{subsubsection.1.2.3.5}
+\contentsline {subsection}{\numberline {1.2.4}仿真通信流程}{15}{subsection.1.2.4}
+\contentsline {subsection}{\numberline {1.2.5}Simulink与PX4进行SIL仿真}{16}{subsection.1.2.5}
+\contentsline {section}{\numberline {1.3}硬件在环仿真HIL}{16}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}启动流程}{16}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}jMAVSim启动时间的讨论}{22}{subsection.1.3.2}
+\contentsline {chapter}{\numberline {2}ROS}{25}{chapter.2}
+\contentsline {section}{\numberline {2.1}基础}{25}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}创建工作空间}{25}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}创建一个pkg}{25}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}编译git上的pkg}{25}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}问题及解决方案}{25}{subsection.2.1.4}
+\contentsline {chapter}{\numberline {3}Python3 学习使用}{26}{chapter.3}
+\contentsline {section}{\numberline {3.1}Python3 生成PDF文档}{26}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}读取测试数据}{26}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}数据分析及处理}{27}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}测试结果及绘图}{27}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}生成PDF文档}{28}{subsection.3.1.4}
+\contentsline {section}{\numberline {3.2}数学运算}{30}{section.3.2}
+\contentsline {chapter}{\numberline {4}状态估计}{31}{chapter.4}
+\contentsline {section}{\numberline {4.1}基础理论知识}{31}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}低通滤波器}{31}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}动态观测器}{31}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}连续--离散卡尔曼滤波器}{32}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}从概率角度的理解}{34}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.5}更多讨论}{35}{subsection.4.1.5}
+\contentsline {section}{\numberline {4.2}四元数}{36}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}四元数基本计算}{36}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}四元数微分方程}{36}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}PX4状态估计源码分析}{36}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}\texttt {attitude_estimator_q}}{36}{subsection.4.3.1}
+\contentsline {chapter}{\numberline {5}轨迹跟踪}{37}{chapter.5}
+\contentsline {section}{\numberline {5.1}基础理论知识}{37}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}L1轨迹跟踪}{37}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}进一步讨论}{38}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}其他的几种轨迹跟踪}{38}{subsection.5.1.3}
+\contentsline {section}{\numberline {5.2}MPC控制及动态路径跟踪}{39}{section.5.2}
+\contentsline {chapter}{\numberline {6}规划}{41}{chapter.6}
+\contentsline {section}{\numberline {6.1}最短路径算法}{41}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Floyd算法}{41}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Dijkstra算法}{41}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Bellman-Ford算法}{42}{subsection.6.1.3}
+\contentsline {subsection}{\numberline {6.1.4}A*算法}{42}{subsection.6.1.4}
+\contentsline {section}{\numberline {6.2}路径搜索算法}{44}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}PRM算法}{44}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}RRT算法}{45}{subsection.6.2.2}
+\contentsline {subsection}{\numberline {6.2.3}RRT*算法}{45}{subsection.6.2.3}
+\contentsline {section}{\numberline {6.3}路径曲线生成算法}{48}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Dubins path}{48}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Bezier曲线 和 B-spline曲线}{48}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}其他形式曲线}{49}{subsection.6.3.3}
+\contentsline {chapter}{\numberline {7}LeetCode}{50}{chapter.7}
+\contentsline {section}{\numberline {7.1}数论}{50}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Power of Three}{50}{subsection.7.1.1}
+\contentsline {section}{\numberline {7.2}树}{50}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Recover Binary Search Tree}{50}{subsection.7.2.1}
+\contentsfinish 

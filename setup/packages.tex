@@ -1,0 +1,97 @@
+﻿% 页面设置
+\usepackage{CJKnumb}
+\usepackage[top = 2.54cm, bottom = 2.54cm, left = 2.5cm, right = 2.5cm]{geometry}     %%% 按照西工大要求进行修改
+\usepackage{indentfirst}                         % 首行缩进宏包
+\usepackage[sf]{titlesec}                        % 控制标题的宏包
+\usepackage{titletoc}                            % 控制目录的宏包
+\usepackage{fancyhdr}                            % 自定义页眉页脚
+\usepackage{fancyref}                            % 引用链接属性
+\usepackage[perpage,symbol*,marginal]{footmisc}            % 脚注控制
+\usepackage{layouts}                             % 打印当前页面格式的宏包
+\usepackage{paralist}                            % 一种换行不缩进的列表格式，asparaenum,inparaenum 等
+\usepackage[shortlabels]{enumitem}               % 列表格式
+\usepackage{fancyvrb}                            % 原样输出
+\usepackage[amsmath,thmmarks,hyperref]{ntheorem} % 定理类环境宏包
+\usepackage{type1cm}                             % 控制字体的大小
+\usepackage{enumitem}
+\usepackage[x11names]{xcolor} % 支持彩色  %放置在{pdfpages}之前，避免冲突
+\usepackage{pdfpages}
+% 表格处理
+\usepackage{booktabs}   % 三线表
+\usepackage{multirow}   % 表格多行处理
+\usepackage{diagbox}    % 斜线表头
+\usepackage{tabularx}   % 表格折行
+\usepackage{siunitx}    % 国际单位，小数点对齐
+
+% 图形相关
+\usepackage{graphicx}         % 请在引用图片时务必给出后缀名
+% \usepackage[x11names]{xcolor} % 支持彩色 提前放置到{pdfpages}之前！！
+% \usepackage[below]{placeins}  % 浮动图形控制宏包                            %%%待修改。
+\usepackage[section]{placeins}  % 浮动图形控制宏包  \FloatBarrier          参考《LaTeX2e插图指南》P92。在每个section前都清理浮动图形。比below严格。
+\usepackage{rotating}	      % 图形和表格的控制
+\usepackage{picinpar}
+\usepackage{setspace}         % 定制表格和图形的多行标题行距
+\usepackage{subfigure}           % 插入子图形
+\usepackage[subfigure]{ccaption} % 插图表格的双语标题
+
+\usepackage{listings}         % 源代码展示
+\lstset{%
+  language=TeX,
+  defaultdialect=empty,
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{LightSteelBlue1},
+  keywordstyle=\color{blue},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2,breakatwhitespace=false,
+  columns=flexible}
+
+% 其他
+\usepackage{calc}   % 在 tex 文件中具有一些计算功能，主要用在页面控制。
+\usepackage[xetex,
+bookmarksnumbered=true,
+bookmarksopen=true,
+colorlinks=true,
+% pdfborder={0 0 1},
+citecolor=blue,
+linkcolor=blue,%magenta
+anchorcolor=green,
+urlcolor=magenta,
+breaklinks=true,
+CJKbookmarks=true,
+]{hyperref}
+
+
+\usepackage[numbers,sort&compress,square,super]{natbib} %参考文献
+\usepackage{hypernat}
+\usepackage{bibentry}
+
+\usepackage{rotating}
+\usepackage{lscape}
+
+\usepackage{mfirstuc}
+\usepackage{soul} %给文本加入高亮显示
+\usepackage{mdwlist}
+\usepackage{bm} %用\bm输入黑斜体
+\usepackage{changepage} %最后版权页中需要使用，段落整体缩进 
+\usepackage{cases} %为了使用{numbercases}环境
+\usepackage{amsmath} %到底要不要加上？
+% \usepackage{float} %为了插入图片时使用H模式，但是该模式较不方便。
+
+
+
+\usepackage{flafter} %使图形在引述后出现
+\usepackage{xpatch} %打补丁，修改chapter
+
+\usepackage{remreset} %图片表格编号全局编排
+
+\usepackage{underscore} 
+
+\usepackage{tikz,mathpazo}
+\usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{calc}
+
+\usepackage{ulem} %下划线、删除线
+
+ 

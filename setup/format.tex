@@ -1,0 +1,420 @@
+﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 页面设置
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% A4 纸张
+%\setlength{\paperwidth}{21.0cm}
+\setlength{\paperwidth}{23.0cm} 
+\setlength{\paperheight}{29.7cm}
+% 设置正文尺寸大小
+% \setlength{\textwidth}{16.1cm}
+\setlength{\textheight}{24.5cm}  %22.2    %如果注释掉，会多显示一行
+% % 设置正文区在正中间
+% \newlength \mymargin
+% \setlength{\mymargin}{(\paperwidth-\textwidth)/2}
+% \setlength{\oddsidemargin}{(\mymargin)-1in}
+% \setlength{\evensidemargin}{(\mymargin)-1in}
+% % 设置正文区偏移量，奇数页向右偏，偶数页向左偏
+% \newlength \myshift
+% \setlength{\myshift}{0.35cm}	% 双面打印的奇偶页偏移值，可根据需要修改，建议小于 0.5cm
+% \addtolength{\oddsidemargin}{\myshift}
+% \addtolength{\evensidemargin}{-\myshift}
+% % 页眉页脚相关距离设置
+% \setlength{\topmargin}{-0.05cm}
+% \setlength{\headheight}{0.50cm}
+% \setlength{\headsep}{0.90cm}
+% \setlength{\footskip}{1.47cm}
+\setlength{\headheight}{15.7pt}
+
+% 公式的精调
+\allowdisplaybreaks[4]  % 可以让公式在排不下的时候分页排，这可避免页面有大段空白。
+
+% 下面这组命令使浮动对象的缺省值稍微宽松一点，从而防止幅度
+% 对象占据过多的文本页面，也可以防止在很大空白的浮动页上放置很小的图形。
+\renewcommand{\topfraction}{0.9999999}
+\renewcommand{\textfraction}{0.0000001}
+\renewcommand{\floatpagefraction}{0.9999}
+
+% \makeatletter %原
+% \renewcommand\normalsize{%
+%    \@setfontsize\normalsize\@xpt\@xiipt
+%    \abovedisplayskip 3\p@ \@plus2\p@ \@minus5\p@
+%    \abovedisplayshortskip \z@ \@plus3\p@
+%    \belowdisplayshortskip 6\p@ \@plus3\p@ \@minus3\p@
+%    \belowdisplayskip \abovedisplayskip
+%    \let\@listi\@listI}
+% \makeatother
+\makeatletter
+\renewcommand\normalsize{%
+   \@setfontsize\normalsize\@xpt\@xiipt
+   \abovedisplayskip 6\p@ \@plus2\p@ \@minus2\p@
+   \abovedisplayshortskip \z@ \@plus3\p@
+   \belowdisplayshortskip 6\p@ \@plus2\p@ \@minus2\p@
+   \belowdisplayskip \abovedisplayskip
+   \let\@listi\@listI}
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 字体字号定义
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 字号
+\newcommand{\yihao}{\fontsize{26pt}{26pt}\selectfont}       % 一号
+\newcommand{\xiaoyi}{\fontsize{24pt}{24pt}\selectfont}      % 小一
+\newcommand{\erhao}{\fontsize{22pt}{22pt}\selectfont}       % 二号
+\newcommand{\xiaoer}{\fontsize{18pt}{20pt}\selectfont}      % 小二
+\newcommand{\sanhao}{\fontsize{16pt}{20pt}\selectfont}      % 三号   %固定行距，标题
+\newcommand{\xiaosan}{\fontsize{15pt}{20pt}\selectfont}     % 小三
+\newcommand{\sihao}{\fontsize{14pt}{20pt}\selectfont}       % 四号   %固定行距，标题
+\newcommand{\xiaosi}{\fontsize{12pt}{20pt}\selectfont}      % 小四   %固定行距，标题，正文
+\newcommand{\wuhao}{\fontsize{10.5pt}{17.5pt}\selectfont}   % 五号
+\newcommand{\wuhaodan}{\fontsize{10.5pt}{10.5pt}\selectfont}% 五号，单倍行距 
+\newcommand{\xiaowu}{\fontsize{9.5pt}{15pt}\selectfont}     % 小五
+\newcommand{\xiaowudan}{\fontsize{9.5pt}{9.5pt}\selectfont} % 小五，单倍行距
+
+% \newcommand{\yihao}{\fontsize{26pt}{39pt}\selectfont}	    % 一号，1.5  倍行距
+% \newcommand{\xiaoyi}{\fontsize{24pt}{30pt}\selectfont}      % 小一，1.25 倍行距
+% \newcommand{\erhao}{\fontsize{22pt}{27.5pt}\selectfont}     % 二号，1.25 倍行距
+% \newcommand{\xiaoer}{\fontsize{18pt}{22.5pt}\selectfont}    % 小二，1.25 倍行距
+% \newcommand{\sanhao}{\fontsize{16pt}{20pt}\selectfont}      % 三号，1.25 倍行距
+% \newcommand{\xiaosan}{\fontsize{15pt}{19pt}\selectfont}     % 小三，1.25 倍行距
+% \newcommand{\sihao}{\fontsize{14pt}{17.5pt}\selectfont}     % 四号，1.25倍行距
+\newcommand{\daxiaosi}{\fontsize{12pt}{18pt}\selectfont}    % 小四，1.5 倍行距
+% \newcommand{\xiaosi}{\fontsize{12pt}{15pt}\selectfont}      % 小四，1.25倍行距
+\newcommand{\dawu}{\fontsize{10.5pt}{18pt}\selectfont}      % 五号，1.75倍行距
+\newcommand{\zhongwu}{\fontsize{10.5pt}{16pt}\selectfont}   % 五号，1.5 倍行距
+\newcommand{\wuhaogd}{\fontsize{10.5pt}{20pt}\selectfont}   % 五号，固定20pt行距，用于表、题
+% \newcommand{\wuhao}{\fontsize{10.5pt}{10.5pt}\selectfont}   % 五号，单倍行距
+% \newcommand{\xiaowu}{\fontsize{9pt}{9pt}\selectfont}	    % 小五，单倍行距
+
+\newcommand{\song}{\CJKfamily{song}}
+\newcommand{\hei}{\CJKfamily{hei}}
+\newcommand{\kai}{\CJKfamily{kai}}
+\newcommand{\fs}{\CJKfamily{fs}}
+\newcommand{\xkai}{\CJKfamily{xkai}}
+
+% defaultfont 默认字体命令
+\def\defaultfont{\renewcommand{\baselinestretch}{1.27}
+  \song\fontsize{12pt}{15pt}\selectfont}
+% \def\defaultfont{%\renewcommand{\baselinestretch}{1}
+%   \song\xiaosi}
+% defaultfont 默认字体命令
+% \def\defaultfont{\renewcommand{\baselinestretch}{1}%{1.27}
+%   \song\fontsize{12pt}{20pt}\selectfont}
+
+% 设置目录字体和行间距
+\def\defaultmenufont{\song\fontsize{12pt}{20pt}\selectfont\setlength{\baselineskip}{20pt}}
+
+% 固定距离内容填入及下划线
+\makeatletter
+\newcommand\fixeddistanceleft[2][1cm]{{\hb@xt@ #1{#2\hss}}}
+\newcommand\fixeddistancecenter[2][1cm]{{\hb@xt@ #1{\hss#2\hss}}}
+\newcommand\fixeddistanceright[2][1cm]{{\hb@xt@ #1{\hss#2}}}
+\newcommand\fixedunderlineleft[2][1cm]{\underline{\hb@xt@ #1{#2\hss}}}
+\newcommand\fixedunderlinecenter[2][1cm]{\underline{\hb@xt@ #1{\hss#2\hss}}}
+\newcommand\fixedunderlineright[2][1cm]{\underline{\hb@xt@ #1{\hss#2}}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 标题环境相关
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 定义、定理等环境
+\theoremstyle{plain}
+\theoremheaderfont{\hei\boldmath}
+\theorembodyfont{\song\rmfamily}
+% \setlength{\theorempreskipamount}{5pt}
+% \setlength{\theorempostskipamount}{-10pt}
+\newtheorem{definition}{\hei 定义}[chapter]
+\newtheorem{example}{\hei 例}[chapter]
+\newtheorem{algorithm}{\hei 算法}[chapter]
+\newtheorem{theorem}{\hei \qquad 定理}%[chapter] %%预答辩修改，全本编号？
+\newtheorem{axiom}{\hei 公理}[chapter]
+\newtheorem{proposition}[theorem]{\hei 命题}
+\newtheorem{property}{\hei 性质}
+\newtheorem{lemma}[theorem]{\hei 引理}
+\newtheorem{corollary}{\hei 推论}[chapter]
+\newtheorem{remark}{\hei 注解}[chapter]
+\newenvironment{proof}{\hei{测试目的}　}{\hfill $\square$ \vskip 4mm}
+\newtheorem{method}{\hei 方法}[chapter]
+
+% 定义标题和目录中章标题
+\renewcommand\contentsname{目~~录}
+\renewcommand\bibname{参考文献}
+\newcommand\prechaptername{}   %%% 按照doc模板似乎不需要,但是看大家的论文都是这样的,保留!
+\newcommand\postchaptername{}
+\renewcommand\appendixname{附录}
+\renewcommand\chaptername{\prechaptername\CJKnumber{\thechapter}\postchaptername}    %%%  这三行待添加
+\newcommand\contentchaptername{\prechaptername\CJKnumber{\thecontentslabel}\postchaptername}
+
+
+% 自定义项目列表标签及格式 \begin{publist} 列表项 \end{publist}
+\newcounter{pubctr} %自定义新计数器
+\newenvironment{publist}{%%%%%定义新环境
+\begin{list}{[\arabic{pubctr}]} %%标签格式
+    {
+     \usecounter{pubctr}
+     \setlength{\leftmargin}{2.5em}     % 左边界 \leftmargin =\itemindent + \labelwidth + \labelsep
+     \setlength{\itemindent}{0em}     % 标号缩进量
+     \setlength{\labelsep}{1em}       % 标号和列表项之间的距离,默认0.5em
+     \setlength{\rightmargin}{0em}    % 右边界
+     \setlength{\topsep}{0ex}         % 列表到上下文的垂直距离
+     \setlength{\parsep}{0ex}         % 段落间距
+     \setlength{\itemsep}{0ex}        % 标签间距
+     \setlength{\listparindent}{0pt} % 段落缩进量
+    }}
+{\end{list}}%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 段落章节相关
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{secnumdepth}{4} %
+\setcounter{tocdepth}{3}    % 显示3级标题
+% \setcounter{secnumdepth}{4}
+% \setcounter{tocdepth}{4}
+
+
+% 段落之间的竖直距离
+\setlength{\parskip}{1.2pt}
+% 段落缩进
+\setlength{\parindent}{24pt}
+% 定义行距
+\renewcommand{\baselinestretch}{1.27}
+% 参考文献条目间行间距
+\setlength{\bibsep}{2pt}
+% \setlength{\bibsep}{1.2pt}
+
+%%%
+% titlesec 宏包(章节标题设置)
+% hang 标题头与标题内容在同一行； block 适合居中的标题；display 标题头与标题内容在两行上
+% 四个大括号内依次为：标题的排版格式、标题头的定义、标题头与标题内容之间的距离、排版标题前执行的命令
+
+% \titleformat{\chapter}[block]{\centering\sanhao\hei}{\chaptername}{1em}{} 
+\titleformat{\chapter}[block]{\sanhao\hei}{\chaptername}{1em}{} 
+\titleformat{\section}[hang]{\sihao\hei}{\thesection}{0.5em}{}
+\titleformat{\subsection}[hang]{\xiaosi\hei}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}[hang]{\xiaosi\song}{\thesubsubsection}{0.5em}{}
+
+% % titlesec 宏包(章节标题前后间距设置)
+% %\titlespacing{命令}{左距离}{上距离}{下距离}
+% % 段后间距设置： 大标题  30-36 pt    一级标题  18-24 pt    二级标题  12-15 pt
+% \titlespacing{\chapter}{0pt}{0pt}{32pt plus 4pt minus 2pt}
+% \titlespacing{\section}{0pt}{5pt}{15pt plus 4pt minus 2pt}
+% \titlespacing{\subsection}{0pt}{3pt}{10pt plus 2pt minus 1pt}
+% \titlespacing{\subsubsection}{0pt}{3pt}{9pt plus 1pt minus 1pt}
+
+% titlesec 宏包(章节标题前后间距设置)
+%\titlespacing{命令}{左距离}{上距离}{下距离}
+% 段后间距设置： 大标题  30-36 pt    一级标题  18-24 pt    二级标题  12-15 pt
+\titlespacing{\chapter}{0pt}{-14pt}{12pt}
+\titlespacing{\section}{0pt}{7pt}{0pt}
+\titlespacing{\subsection}{0pt}{6pt}{0pt}
+\titlespacing{\subsubsection}{0pt}{3pt}{0pt}
+
+% titlesec 宏包(中文目录缩进设置)  
+\contentsmargin{3.0mm}    % 控制目录线同右边页码间空白距离
+
+
+% % 中文目录中采用垂直居中的实心($\cdot$)圆点作为填充符号，所以需要重新定义章节目录项格式
+% \titlecontents{chapter}[0.0em]{}{\contentchaptername}{}{{\titlerule*[5pt]{.}}\contentspage}
+% \titlecontents{section}[1.0em]{}{\thecontentslabel}{}{{\titlerule*[5pt]{.}}\contentspage}
+% \titlecontents{subsection}[2.0em]{}{\thecontentslabel}{}{{\titlerule*[5pt]{.}}\contentspage}
+% \titlecontents{subsubsection}[3.0em]{}{\thecontentslabel}{}{{\titlerule*[5pt]{.}}\contentspage}
+
+% \def\confont{\song\xiaosi}
+% \titlecontents{chapter}[0.0em]{\confont}{\contentchaptername\hspace{0.5em}}{}{\hspace{0.5em}{\titlerule*[5pt]{.}}\contentspage}
+% \titlecontents{section}[1.0em]{\confont}{\thecontentslabel\hspace{0.5em}}{}{\hspace{0.5em}{\titlerule*[5pt]{.}}\contentspage}
+% \titlecontents{subsection}[2.0em]{\confont}{\thecontentslabel\hspace{0.5em}}{}{\hspace{0.5em}{\titlerule*[5pt]{.}}\contentspage}
+% \titlecontents{subsubsection}[3.0em]{\confont}{\thecontentslabel\hspace{0.5em}}{}{\hspace{0.5em}{\titlerule*[5pt]{.}}\contentspage}
+
+\titlecontents{chapter}[0.0em]{}{\contentchaptername\hspace{0.5em}}{}{\hspace{0.5em}{\titlerule*[5pt]{.}}\contentspage}
+\titlecontents{section}[1.0em]{}{\thecontentslabel\hspace{0.5em}}{}{\hspace{0.5em}{\titlerule*[5pt]{.}}\contentspage}
+\titlecontents{subsection}[2.0em]{}{\thecontentslabel\hspace{0.5em}}{}{\hspace{0.5em}{\titlerule*[5pt]{.}}\contentspage}
+\titlecontents{subsubsection}[3.0em]{}{\thecontentslabel\hspace{0.5em}}{}{\hspace{0.5em}{\titlerule*[5pt]{.}}\contentspage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 页眉页脚设置
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \newcommand{\makeheadrule}{%
+%   \makebox[0pt][l]{\rule[.7\baselineskip]{\headwidth}{0.5pt}}%
+%   \vskip-.8\baselineskip}
+% \newcommand{\makeheadrule}{%
+%     \makebox[0pt][l]{\rule[.7\baselineskip]{\headwidth}{0.8pt}}%
+%     \rule[0.85\baselineskip]{\headwidth}{1.5pt}\vskip-.8\baselineskip}%1.5 0.4-&gt;0.5
+\newcommand{\makeheadrule}{%
+    \hrule width\headwidth height2.8pt \vspace{1pt}%
+    \hrule width\headwidth height0.8pt}
+
+\makeatletter
+\renewcommand{\headrule}{%
+  {\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
+    \makeheadrule}}
+
+
+% % % 页眉 页脚
+% % \pagestyle{fancy}
+\pagestyle{fancyplain}
+\fancyhf{}
+%下面这行在页眉显示当前章节名称。 参考http://blog.sina.com.cn/s/blog_5e16f1770100rgux.html
+% \renewcommand{\chaptermark}[1]{\markboth{\chaptername\  #1}{}}  
+\renewcommand{\chaptermark}[1]{\markboth{%    %自己摸索的。#1应该表示章节名称，放在判断的最外面。
+    \if@mainmatter
+      \ifnum\arabic{chapter}>0 %
+           \chaptername\quad
+      \fi%
+    \fi#1}{}} 
+\fancyhead[CO]{\song\xiaowudan\leftmark}
+\fancyhead[CE]{\song\xiaowudan\rightmark}
+% \fancyhead[CE]{\song\xiaowudan{个人学习总结}}
+\fancyfoot[C,C]{\song\wuhaodan$ $~\thepage~$ $}
+
+% % Clear Header Style on the Last Empty Odd pages
+% \makeatletter
+% \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else%
+%   \hbox{}%
+%   \thispagestyle{empty}%              % Empty header styles
+%   \newpage%
+%   \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+
+% 中文封面
+\def\titleC#1#2{\def\@titleC{#1}\def\@titleCN{#2}}
+\def\@titleC{}
+\def\@titleCN{}
+\def\authorC#1{\def\@authorC{#1}}\def\@authorC{}
+\def\majorC#1{\def\@majorC{#1}}\def\@majorC{}
+\def\supervisorC#1{\def\@supervisorC{#1}}\def\@supervisorC{}
+\def\dateC#1{\def\@dateC{#1}}\def\@dateC{}
+
+\def\classno#1{\def\@classno{#1}}\def\@classno{}
+\def\secretlevel#1{\def\@secretlevel{#1}}\def\@secretlevel{}
+\def\authorno#1{\def\@authorno{#1}}\def\@authorno{}
+
+
+% 英文封面
+\def\titleE#1{\def\@titleE{#1}}\def\@titleE{}
+\def\authorE#1{\def\@authorE{#1}}\def\@authorE{}
+\def\majorE#1{\def\@majorE{#1}}\def\@majorE{}
+\def\supervisorE#1{\def\@supervisorE{#1}}\def\@supervisorE{}
+\def\dateE#1{\def\@dateE{#1}}\def\@dateE{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 列表环境设置
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \setlist[enumerate]{1、,itemsep=-5pt,topsep=0mm,labelindent=\parindent,leftmargin=*}
+\setlist[enumerate]{(1),itemsep=-5pt,topsep=0mm,labelindent=\parindent,leftmargin=*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 国际单位，以点连接。
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\sisetup{inter-unit-product = { }\cdot{ }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 参考文献的处理
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \addtolength{\bibsep}{-0.5em}              % 缩小参考文献间的垂直间距
+\setlength{\bibhang}{2em}
+\bibpunct{[}{]}{,}{s}{}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   其他设置
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   增加 \ucite 命令使显示的引用为上标形式
+%   \newcommand{\ucite}[1]{$^{\mbox{\scriptsize \cite{#1}}}$}
+\newcommand{\ucite}[1]{\scalebox{1.3}[1.3]{\raisebox{-0.65ex}{\cite{#1}}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   图形表格
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+% \renewcommand{\thetable}{\thechapter-\arabic{table}} %修改表格的表头为表2-1
+% \renewcommand{\thefigure}{\thechapter-\arabic{figure}} %修改图片的题头为图2-1
+\@removefromreset{table}{chapter}
+\@removefromreset{figure}{chapter}
+\renewcommand{\thetable}{\arabic{table}} %修改表格的表头为表1
+\renewcommand{\thefigure}{\arabic{figure}} %修改图片的题头为图1
+
+% \renewcommand\listoftables{\vskip0.5cm
+%      %\par{\Large\bfseries \listtablename}\vskip1cm
+%      \section*{\listtablename}\vskip0.5cm
+%        \@mkboth{%
+%            \MakeUppercase\listtablename}%
+%           {\MakeUppercase\listtablename}%
+%      \@starttoc{lot}%
+%      }
+
+% \newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
+% \addtocontents{lof}{\protect\noaddvspace}
+% \addtocontents{lot}{\protect\noaddvspace}
+
+
+% \captionstyle{\centering}
+% \hangcaption
+\captiondelim{\hspace{1em}}
+\captiondelim{\hspace{1em}}
+\captionnamefont{\song \wuhaogd}%字体改为宋体，五号，20pt
+\captiontitlefont{\song \wuhaogd}
+\setlength{\abovecaptionskip}{5pt}
+\setlength{\belowcaptionskip}{5pt}
+
+\heavyrulewidth=2.25pt  %三线表中粗线磅值
+\lightrulewidth=1pt   %细线磅值
+\belowbottomsep=-10pt
+
+\newcommand{\figskip}{\setlength{\abovecaptionskip}{0pt}\setlength{\belowcaptionskip}{-10pt}}
+
+\newcommand{\tablepage}[2]{\begin{minipage}{#1}\vspace{0.5ex} #2 \vspace{0.5ex}\end{minipage}}
+\newcommand{\returnpage}[2]{\begin{minipage}{#1}\vspace{0.5ex} #2 \vspace{-1.5ex}\end{minipage}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 定义题头格言的格式
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newsavebox{\AphorismAuthor}
+\newenvironment{Aphorism}[1]
+{\vspace{0.5cm}\begin{sloppypar} \slshape
+    \sbox{\AphorismAuthor}{#1}
+    \begin{quote}\small\itshape }
+    {\\ \hspace*{\fill}------\hspace{0.2cm} \usebox{\AphorismAuthor}
+    \end{quote}
+  \end{sloppypar}\vspace{0.5cm}}
+
+% 自定义一个空命令，用于注释掉文本中不需要的部分。
+\newcommand{\comment}[1]{}
+
+% This is the flag for longer version
+\newcommand{\longer}[2]{#1}
+
+\newcommand{\ds}{\displaystyle}
+
+% define graph scale
+\def\gs{1.0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%其他的设置
+
+\newcommand{\hhl}[1]{\hl{\mbox{#1}}}  %定义一个用于中文高亮的语法
+
+\renewcommand{\theequation}{\thechapter-\arabic{equation}} %修改图片的题头为图2-1
+
+\newcommand{\til}{\textasciitilde}
+
+%% 定义一组微分方程中的简便描述
+% \newcommand{\dd}{\mathrm{d}}
+\newcommand{\dd}{\mathop{}\!\mathrm{d}}
+\newcommand{\qq}{\partial}
+\newcommand{\tw}{\textwidth}
+\def\Q#1#2{\frac{\partial#1}{\partial #2}}
+\def\D#1#2{\frac{\dd#1}{\dd#2}}
+
+\def\Ci#1{\setcitestyle{numbers}\!#1}  %非上标形式的引用
+
+\newcommand{\uT}{\mathrm{T}} %用于上标
+\renewcommand{\rm}{\mathrm}   %正体
+\renewcommand{\bf}{\mathbf}   %正体加粗
+\renewcommand{\le}{\leqslant} 
+\renewcommand{\ge}{\geqslant} 
+
+\newcounter{rowno}
+\setcounter{rowno}{0}
+\newcommand{\mynum}{{\arabic{rowno}\stepcounter{rowno}}}

@@ -1,0 +1,78 @@
+%!TEX program = xelatex
+\documentclass[12pt, a4paper, openany, twoside]{book}
+\usepackage{pdflscape} %它在 lscape宏包的基础上增加了对通过 PDFLaTeX 方式生成 PDF 文件的支持。
+     
+% 字体配置文件
+\input{setup/fonts.tex}
+               
+% 宏包配置文件 
+\input{setup/packages.tex}
+
+% 格式文件 
+\input{setup/format.tex}
+ 
+\includeonly{	 
+			body/PX4,
+			body/ros,
+			body/python, 
+			body/estimator,
+			body/path,
+			body/planning,
+			body/LeetCode
+			}  
+    
+\begin{document}
+    
+% 定义所有的图片文件在 figures 子目录下
+\graphicspath{{figures/}}
+ 
+% 前言
+\frontmatter
+\pagenumbering{Roman}
+\defaultfont
+
+% 符号表
+% \include{preface/denotation}
+
+% \defaultmenufont
+% 目录
+\tableofcontents
+\addcontentsline{toc}{chapter}{目 \quad 录}
+\cleardoublepage
+  
+\defaultfont
+\mainmatter
+% 正文章节 
+\defaultfont
+\renewcommand{\thefootnote}{\arabic{footnote}}
+   
+%%%%  正文开始 
+%%%%  注意???标识待修改的地方
+  
+\include{body/PX4}
+\include{body/ros}
+\include{body/python}
+\include{body/estimator}
+\include{body/path}
+\include{body/planning}
+\include{body/LeetCode}
+\backmatter
+
+
+% 参考文献
+\defaultfont
+% \bibliographystyle{GBT7714-2005_2}
+% \bibliography{body/reference}
+% \addcontentsline{toc}{chapter}{参考文献}
+\cleardoublepage
+
+
+
+
+\defaultfont
+
+
+% 版权页
+% \phantomsection  % 让 hyperref 宏包生成的链接指向正确的位置
+
+\end{document}

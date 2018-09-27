@@ -1,0 +1,67 @@
+\BOOKMARK [0][]{chapter*.1}{目  录}{}% 1
+\BOOKMARK [0][]{chapter.1}{1\040PX4}{}% 2
+\BOOKMARK [1][]{section.1.1}{1.1 编译}{chapter.1}% 3
+\BOOKMARK [1][]{section.1.2}{1.2 软件在环仿真SIL}{chapter.1}% 4
+\BOOKMARK [2][]{subsection.1.2.1}{1.2.1 启动流程}{section.1.2}% 5
+\BOOKMARK [2][]{subsection.1.2.2}{1.2.2 jMAVSim 初始化}{section.1.2}% 6
+\BOOKMARK [2][]{subsection.1.2.3}{1.2.3 PX4 SITL 初始化}{section.1.2}% 7
+\BOOKMARK [3][]{subsubsection.1.2.3.1}{1.2.3.1 simulator 模块流程}{subsection.1.2.3}% 8
+\BOOKMARK [3][]{subsubsection.1.2.3.2}{1.2.3.2 gyrosim等虚拟传感器 模块流程}{subsection.1.2.3}% 9
+\BOOKMARK [3][]{subsubsection.1.2.3.3}{1.2.3.3 pwm_out_sim与mixer模块流程}{subsection.1.2.3}% 10
+\BOOKMARK [3][]{subsubsection.1.2.3.4}{1.2.3.4 MAVLink 解析}{subsection.1.2.3}% 11
+\BOOKMARK [3][]{subsubsection.1.2.3.5}{1.2.3.5 其他 MAVLink 问题}{subsection.1.2.3}% 12
+\BOOKMARK [2][]{subsection.1.2.4}{1.2.4 仿真通信流程}{section.1.2}% 13
+\BOOKMARK [2][]{subsection.1.2.5}{1.2.5 Simulink与PX4进行SIL仿真}{section.1.2}% 14
+\BOOKMARK [1][]{section.1.3}{1.3 硬件在环仿真HIL}{chapter.1}% 15
+\BOOKMARK [2][]{subsection.1.3.1}{1.3.1 启动流程}{section.1.3}% 16
+\BOOKMARK [2][]{subsection.1.3.2}{1.3.2 jMAVSim启动时间的讨论}{section.1.3}% 17
+\BOOKMARK [0][]{chapter.2}{2\040ROS}{}% 18
+\BOOKMARK [1][]{section.2.1}{2.1 基础}{chapter.2}% 19
+\BOOKMARK [2][]{subsection.2.1.1}{2.1.1 创建工作空间}{section.2.1}% 20
+\BOOKMARK [2][]{subsection.2.1.2}{2.1.2 创建一个pkg}{section.2.1}% 21
+\BOOKMARK [2][]{subsection.2.1.3}{2.1.3 编译git上的pkg}{section.2.1}% 22
+\BOOKMARK [2][]{subsection.2.1.4}{2.1.4 问题及解决方案}{section.2.1}% 23
+\BOOKMARK [0][]{chapter.3}{3 Python3 学习使用}{}% 24
+\BOOKMARK [1][]{section.3.1}{3.1 Python3 生成PDF文档}{chapter.3}% 25
+\BOOKMARK [2][]{subsection.3.1.1}{3.1.1 读取测试数据}{section.3.1}% 26
+\BOOKMARK [2][]{subsection.3.1.2}{3.1.2 数据分析及处理}{section.3.1}% 27
+\BOOKMARK [2][]{subsection.3.1.3}{3.1.3 测试结果及绘图}{section.3.1}% 28
+\BOOKMARK [2][]{subsection.3.1.4}{3.1.4 生成PDF文档}{section.3.1}% 29
+\BOOKMARK [1][]{section.3.2}{3.2 数学运算}{chapter.3}% 30
+\BOOKMARK [0][]{chapter.4}{4 状态估计}{}% 31
+\BOOKMARK [1][]{section.4.1}{4.1 基础理论知识}{chapter.4}% 32
+\BOOKMARK [2][]{subsection.4.1.1}{4.1.1 低通滤波器}{section.4.1}% 33
+\BOOKMARK [2][]{subsection.4.1.2}{4.1.2 动态观测器}{section.4.1}% 34
+\BOOKMARK [2][]{subsection.4.1.3}{4.1.3 连续–离散卡尔曼滤波器}{section.4.1}% 35
+\BOOKMARK [2][]{subsection.4.1.4}{4.1.4 从概率角度的理解}{section.4.1}% 36
+\BOOKMARK [2][]{subsection.4.1.5}{4.1.5 更多讨论}{section.4.1}% 37
+\BOOKMARK [1][]{section.4.2}{4.2 四元数}{chapter.4}% 38
+\BOOKMARK [2][]{subsection.4.2.1}{4.2.1 四元数基本计算}{section.4.2}% 39
+\BOOKMARK [2][]{subsection.4.2.2}{4.2.2 四元数微分方程}{section.4.2}% 40
+\BOOKMARK [1][]{section.4.3}{4.3 PX4状态估计源码分析}{chapter.4}% 41
+\BOOKMARK [2][]{subsection.4.3.1}{4.3.1\040attitude_estimator_q}{section.4.3}% 42
+\BOOKMARK [0][]{chapter.5}{5 轨迹跟踪}{}% 43
+\BOOKMARK [1][]{section.5.1}{5.1 基础理论知识}{chapter.5}% 44
+\BOOKMARK [2][]{subsection.5.1.1}{5.1.1 L1轨迹跟踪}{section.5.1}% 45
+\BOOKMARK [2][]{subsection.5.1.2}{5.1.2 进一步讨论}{section.5.1}% 46
+\BOOKMARK [2][]{subsection.5.1.3}{5.1.3 其他的几种轨迹跟踪}{section.5.1}% 47
+\BOOKMARK [1][]{section.5.2}{5.2 MPC控制及动态路径跟踪}{chapter.5}% 48
+\BOOKMARK [0][]{chapter.6}{6 规划}{}% 49
+\BOOKMARK [1][]{section.6.1}{6.1 最短路径算法}{chapter.6}% 50
+\BOOKMARK [2][]{subsection.6.1.1}{6.1.1 Floyd算法}{section.6.1}% 51
+\BOOKMARK [2][]{subsection.6.1.2}{6.1.2 Dijkstra算法}{section.6.1}% 52
+\BOOKMARK [2][]{subsection.6.1.3}{6.1.3 Bellman-Ford算法}{section.6.1}% 53
+\BOOKMARK [2][]{subsection.6.1.4}{6.1.4 A*算法}{section.6.1}% 54
+\BOOKMARK [1][]{section.6.2}{6.2 路径搜索算法}{chapter.6}% 55
+\BOOKMARK [2][]{subsection.6.2.1}{6.2.1 PRM算法}{section.6.2}% 56
+\BOOKMARK [2][]{subsection.6.2.2}{6.2.2 RRT算法}{section.6.2}% 57
+\BOOKMARK [2][]{subsection.6.2.3}{6.2.3 RRT*算法}{section.6.2}% 58
+\BOOKMARK [1][]{section.6.3}{6.3 路径曲线生成算法}{chapter.6}% 59
+\BOOKMARK [2][]{subsection.6.3.1}{6.3.1\040Dubins\040path}{section.6.3}% 60
+\BOOKMARK [2][]{subsection.6.3.2}{6.3.2 Bezier曲线 和 B-spline曲线}{section.6.3}% 61
+\BOOKMARK [2][]{subsection.6.3.3}{6.3.3 其他形式曲线}{section.6.3}% 62
+\BOOKMARK [0][]{chapter.7}{7\040LeetCode}{}% 63
+\BOOKMARK [1][]{section.7.1}{7.1 数论}{chapter.7}% 64
+\BOOKMARK [2][]{subsection.7.1.1}{7.1.1\040Power\040of\040Three}{section.7.1}% 65
+\BOOKMARK [1][]{section.7.2}{7.2 树}{chapter.7}% 66
+\BOOKMARK [2][]{subsection.7.2.1}{7.2.1\040Recover\040Binary\040Search\040Tree}{section.7.2}% 67

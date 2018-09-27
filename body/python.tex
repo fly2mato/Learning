@@ -1,0 +1,185 @@
+\chapter{Python3 学习使用}
+\section{Python3 生成PDF文档}
+初始的需求是将测试设备得到的测量数据，自动生成为测试报告。其中测量数据形式为$[\bf{t}, \bf{D}_1, \bf{D}_2, \dots, \bf{D}_n]$这样的数据集，第一列为时间戳，后续为特定数据。考虑到通用性和开发便捷性，以及对数据处理和绘图的要求，考虑采用Python3 生成PDF文档。特别标明用的Py3版本是因为在某些环节中Py2的处理会不适用。
+
+整体流程以及主要使用的包如图\ref{fig: PDF流程}所示：
+% 流程图定义基本形状
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width = 2cm, minimum height=1cm,text centered, draw = black, fill = red!40]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=2cm, minimum height=1cm, text centered, draw=black, fill = blue!40]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill = yellow!50]
+\tikzstyle{decision} = [diamond, aspect = 3, text centered, draw=black, fill = green!30]
+% 箭头形式
+\tikzstyle{arrow} = [->,>=stealth]
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[node distance=2cm]
+%定义流程图具体形状
+\node (start) [startstop] {开始};
+\node (read) [process, below of=start, yshift = -0.2cm]{读取测试数据};
+\node (analysis) [process, below of=read, yshift = -0.2cm]{数据处理及分析};
+\node (result) [process, below of=analysis, yshift = -0.2cm]{测试结果及绘图};
+\node (getpdf) [process, below of=result, yshift = -0.2cm]{生成PDF文档};
+\node (stop) [startstop, below of=getpdf]{结束};
+
+%连接具体形状
+\draw [arrow](start) -- (read) ;
+\draw [arrow](read) -- node[anchor = west] {NumPy} (analysis);
+\draw [arrow](analysis) -- node[anchor = west] {matplotlib} (result);
+\draw [arrow](result) -- node[anchor = west] {reportlab} (getpdf);
+\draw [arrow](getpdf) -- (stop);
+% \draw [arrow](dec1) -- ($(dec1.east) + (1.5,0)$) node[anchor=north] {不通过} |- (pro3);
+\end{tikzpicture}
+\caption{\label{fig: PDF流程} 自动报告python生成流程}
+\end{figure}
+
+\subsection{读取测试数据}
+这里默认下位机数据已经回传到上位机中，协议使用csv格式且无第一行变量名称，那么可以直接调用
+\begin{lstlisting}[language=python,numbers=left,firstnumber = 1,breaklines = true,numberstyle=\tiny,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20}]
+import numpy, sys
+st = sys.argv
+if (len(st) > 1):
+    filename = st[1].split('.')[0]
+else:
+    print("Please input log file name!")
+    return
+data = numpy.loadtxt(open(filename+'.csv',"rb"),delimiter=",",skiprows=0) 
+\end{lstlisting}
+
+\subsection{数据分析及处理}
+待定
+
+\subsection{测试结果及绘图}
+值得注意的是绘图中1维/n维数据的处理、中文处理等。具体代码为：
+\begin{lstlisting}[language=python,numbers=left,firstnumber = 1,breaklines = true,numberstyle=\tiny,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20}]
+import matplotlib
+import matplotlib.pyplot as plt
+
+#字体路径、尺寸设置
+TTFontpath = {'zen':'./wqy-zenhei.ttc','micro':'./wqy-microhei.ttc'}
+zhfont2 = matplotlib.font_manager.FontProperties(fname=TTFontpath['micro'])
+zhfont1 = matplotlib.font_manager.FontProperties(fname=TTFontpath['zen'])
+zhfontlegend = zhfont1
+zhfontlegend.set_size(22)
+
+#画图
+def getMyImage(x, y, xlabel, ylabel, title, legendstr = ''):
+    fig = plt.figure(figsize = (16,16))
+    if y.size == y.shape[0]:
+        plt.plot(x,y, label = legendstr)
+    else:
+        for i in range(y.shape[1]):
+            plt.plot(x, y[:,i], label = legendstr[i])
+    plt.xlabel(xlabel,fontsize = 24, fontproperties=zhfont1)
+    plt.ylabel(ylabel,fontsize = 24, fontproperties=zhfont1)
+    plt.title(title,fontsize = 28, fontproperties=zhfont1)
+    if legendstr != '': 
+        plt.legend(loc='best', ncol=y.size//y.shape[0], prop = zhfontlegend, shadow=True, fancybox=True).get_frame().set_alpha(0.4)
+
+#主函数中截选
+
+simt = (data[:,0] - data[0,0]) / 1000.0
+curr = data[:,[3,4,7]]
+getMyImage(simt, data[:,5], '时间(s)', '温度(度)', '温度曲线')
+getMyImage(simt, curr, '时间(s)', '电压(V)', '电调电压曲线',['上电机电调电流','下电机电调电流','总电流'])
+\end{lstlisting}
+NumPy的array矩阵，如果抽取一列的话，结果是一维向量，这时shape属性的为‘(len,)’，没有第二个值。所以在14行做了特殊的判断。
+
+ubuntu下系统的字体可以在 ‘/usr/share/fonts/truetype/’ 下查找，这里将字体放到项目目录下了。图例中的属性使用‘prop’关键字，而标签、标题则是‘fontsize/fontproperties’等。
+
+\subsection{生成PDF文档}
+生成PDF使用reportlab这个包，并且是基于test_charts_textlabels.py这个模板改的。主要的细节有两点，一是中文格式等，二是matplotlib图片怎么直接插入到PDF中（而不用先临时保存为文件）。reportlab包的使用具体可以参考reportlab的手册，或者直接从
+\href{https://pypi.python.org/pypi/reportlab/3.4.0}{reportlab3.4源码地址}
+下载源码并使用 ‘python3 setup.py install’ 安装，然后生成测试代码、demo、手册等PDF。
+
+中文格式采用以下的办法：
+\begin{lstlisting}[language=python,numbers=left,firstnumber = 1,breaklines = true,numberstyle=\tiny,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20}]
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+
+TTFontpath = {'zen':'./wqy-zenhei.ttc','micro':'./wqy-microhei.ttc'}
+pdfmetrics.registerFont(TTFont('micro', TTFontpath['micro']))
+pdfmetrics.registerFont(TTFont('zen', TTFontpath['zen']))
+\end{lstlisting}
+在使用时：
+\begin{lstlisting}[language=python,numbers=left,firstnumber = 1,breaklines = true,numberstyle=\tiny,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20}]
+story = []
+styleSheet = getSampleStyleSheet()
+bt = styleSheet['BodyText']
+cbt = styleSheet['BodyText']
+h1 = styleSheet['Heading1']
+ch1 = styleSheet['Heading1']
+
+cbt.fontName = 'micro'
+ch1.fontName ='zen'
+
+story.append(Paragraph('测试标题测试标题', ch1))
+story.append(Paragraph('测试文本测试文本', cbt))
+\end{lstlisting}
+
+将matplotlib的图片插入到reportlab的PDF中，有2个中间步骤：
+
+（1）将matplotlib的图片对象转为reportlab中的图片对象
+\begin{lstlisting}[language=python,numbers=left,firstnumber = 1,breaklines = true,numberstyle=\tiny,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20}]
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+from PIL import Image
+import matplotlib.pyplot as plt
+from reportlab.pdfgen import canvas
+from reportlab.lib.units import inch, cm
+
+from reportlab.lib.utils import ImageReader
+
+fig = plt.figure(figsize=(4, 3))
+plt.plot([1,2,3,4])
+plt.ylabel('some numbers')
+
+imgdata = Image.io.BytesIO() #!
+fig.savefig(imgdata, format='png')
+imgdata.seek(0)  # rewind the data
+
+Image = ImageReader(imgdata) #!
+
+c = canvas.Canvas('test.pdf')
+c.drawImage(Image, cm, cm, inch, inch)
+c.save()
+\end{lstlisting}
+以上是能够在Python3中运行的demo，具体参考的是stackoverflow上\href{https://stackoverflow.com/questions/18897511/how-to-drawimage-a-matplotlib-figure-in-a-reportlab-canvas}{How to drawImage a matplotlib figure in a reportlab canvas?}的回答和
+\href{https://stackoverflow.com/questions/8598673/how-to-save-a-pylab-figure-into-in-memory-file-which-can-be-read-into-pil-image}{how to save a pylab figure into in-memory file which can be read into PIL image?}的回答。前一个回答中的代码在Python2上没问题，当在Python3中无法使用。
+
+(2)在reportlab的模板中追加图片
+\begin{lstlisting}[language=python,numbers=left,firstnumber = 1,breaklines = true,numberstyle=\tiny,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20}]
+class flowable_fig(reportlab.platypus.Flowable):
+    def __init__(self, imgdata):
+        reportlab.platypus.Flowable.__init__(self)
+        self.img = reportlab.lib.utils.ImageReader(imgdata)
+    def draw(self):
+        self.canv.drawImage(self.img, 0.5 * A4[0]-3.5*inch, 0*inch, height = -3*inch, width = 5*inch)
+
+def getMyImage(x, y, xlabel, ylabel, title, legendstr = ''):
+    #...
+    imgdata = Image.io.BytesIO()
+    fig.savefig(imgdata, format='png')
+    imgdata.seek(0)  
+    return flowable_fig(imgdata)
+
+#主函数中截选
+#...
+story.append(getMyImage(simt, data[:,5], '时间(s)', '湿度(%)', '湿度曲线'))
+\end{lstlisting}
+参考的是\href{https://stackoverflow.com/questions/5356413/draw-images-with-canvas-and-use-simpledoctemplate}{Draw images with canvas and use SimpleDocTemplate}的回答。
+
+\section{数学运算}
+16进制与浮点数相互转化：
+\begin{lstlisting}[language=python,numbers=left,firstnumber = 1,breaklines = true,numberstyle=\tiny,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20}]
+import struct
+struct.unpack('!f', bytes.fromhex('3f660ab9'))[0]
+hex(struct.unpack('<I', struct.pack('<f', 2.0000))[0])
+\end{lstlisting}
+
+
+\begin{lstlisting}[title=abcdefg,language=python,numbers=left,firstnumber = 1,breaklines = true,numberstyle=\tiny,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20}]
+    hello world!
+\end{lstlisting}
+

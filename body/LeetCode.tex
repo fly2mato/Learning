@@ -1,0 +1,76 @@
+\chapter{LeetCode}
+\section{数论}
+\subsection{Power of Three}
+
+\noindent {\hei $\blacksquare$ \href{https://leetcode.com/problems/power-of-three/description/}{\texttt{题目描述}}}：
+
+给一个整数，判断是否为3的整数幂。要求不使用循环/递归。
+
+\noindent {\hei $\blacksquare$ 解答思路一}：
+
+若整数$N$是3的整数幂，即$3^a = N$ 那么$a = \log_3 N$一定也是一个整数，使用换底公式为:
+\begin{equation*}
+    a = \frac{\log_{10} N}{\log_{10} 3} 
+\end{equation*}
+注，不能使用自然对数$e$或2为底进行计算，无法通过。
+判断$a$是否为整数可以用\texttt{(a - (int)a == 0)}来判断。
+
+\noindent {\hei $\blacksquare$ 解答思路二}：
+
+可以用int范围内最大的一个3的整数幂来求余，若余数为0,表明$N$是3的整数幂。
+
+\section{树}
+\subsection{Recover Binary Search Tree}
+
+\noindent {\hei $\blacksquare$ \href{https://leetcode.com/problems/recover-binary-search-tree/description/}{\texttt{题目描述}}}：
+
+给一个二叉搜索树，其中有两个节点位置交换了，需要将其恢复。要求空间复杂度为O(N)。
+
+\noindent {\hei $\blacksquare$ 解答思路}： \\
+1. 先序遍历二叉搜索树时，遍历结果为一个递增序列。若出现某个元素大于后一个元素，则说明这两个元素的位置有误。\\
+2. 要求只使用O(N)空间复杂度，所以不能用常规递归/迭代的方式进行遍历，需要使用Morris traversal的遍历方式。具体算法为：\\
+
+A...如果左子树为空，打印当前节点，并将当前节点指向右子树。
+
+B...如果左子树非空，迭代找到左子树中的先序遍历的最后一个节点。
+
+.......a) 如果该节点的右子树指向当前节点，则将恢复右子树为NULL，当前节点指向右子树。
+
+.......b) 如果该节点的右子树为空，则将右子树指向当前节点，打印当前节点，并将当前节点指向左子树。
+
+C...迭代重复上述过程直到当前节点为空。
+
+\noindent 3. 需要将上述算法中节点打印的顺序用一个指针记录。
+
+\begin{lstlisting}[language=c++,numbers=left,firstnumber = 1,numberstyle=\tiny,breaklines = true,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20}]
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+int MorrisTravelPreorder(TreeNode* root){
+    TreeNode *cur = root;
+    TreeNode *pre = NULL;
+    while(cur){
+        if (!cur->left) {
+            cout << cur->val << endl;
+            cur = cur->right;
+        } else {
+            pre = cur->left;
+            while(pre->right && pre->right != cur){
+                pre = pre->right;
+            }
+            if (!pre->right) {
+                pre->right = cur;
+                cur = cur->left;
+            } else {
+                pre->right = NULL;
+                cout << cur->val << endl;
+                cur = cur->right;
+            }
+        }
+    }
+}
+\end{lstlisting}
