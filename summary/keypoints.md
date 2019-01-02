@@ -17,3 +17,8 @@ else:
 
 saver.save(sess, "./paralog/model.ckpt")
 ```
+
+**将numpy array由浮点型转换为整型**
+```
+x.astype(int)
+```
