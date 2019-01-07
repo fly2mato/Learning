@@ -22,3 +22,11 @@ saver.save(sess, "./paralog/model.ckpt")
 ```
 x.astype(int)
 ```
+
+**mojoco报错 GLEW initalization error**
+
+open .bashrc sudo gedit ~/.bashrc
+
+add this line at the end export 
+
+LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libGLEW.so:/usr/lib/x86_64-linux-gnu/libGL.so
