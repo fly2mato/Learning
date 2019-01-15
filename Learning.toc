@@ -63,4 +63,6 @@
 \contentsline {subsection}{\numberline {6.3.4}多项式轨迹}{49}{subsection.6.3.4}
 \contentsline {chapter}{\numberline {7}机器学习}{51}{chapter.7}
 \contentsline {section}{\numberline {7.1}概述}{51}{section.7.1}
+\contentsline {chapter}{\numberline {8}强化学习}{52}{chapter.8}
+\contentsline {section}{\numberline {8.1}策略优化的基础知识}{52}{section.8.1}
 \contentsfinish 
