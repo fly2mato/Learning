@@ -26,6 +26,49 @@ a(s) = \arg \max_a Q_\theta(s,a)
 
 而将两种方法结合起来的算法，就是同时估计$Q_\theta(s,a)$和$\pi_\theta(a|s)$
 
+\section{DQN}
+Q-learning在每步迭代过程中，使用如下的损失函数：
+\begin{equation*}
+    L_i(\theta_i) = \mathbb{E}_{(s,a,r,s')\sim U(D)} \left[ \left( r+\gamma \max_{a'} \hat{Q}(s',a';\theta_i^-) - Q(s,a;\theta_i) \right)^2 \right]
+\end{equation*}
+
+DQN算法的几个核心特点包括：
+\begin{enumerate}
+    \item 使用CNN完成end-to-end的特征提取及对Q函数的估计
+    \item 采用experience replay技巧，削弱episode样本间的相关性，提高算法的收敛的稳定性
+    \item 降低target网络的更新频次，增加稳定性
+\end{enumerate}
+
+具体算法伪代码为：
+\begin{figure}[htbp]
+	\figskip 
+	\centering
+	\includegraphics[width = 0.85\textwidth,trim = 0 -0 0 -0,clip]{DQN.png}	  
+	\caption{\label{fig: dqn} DQN算法伪代码}
+\end{figure}
+
+特点总结：
+\begin{enumerate}
+    \item off-policy,使用greedy-$\epsilon$的策略做探索，更新greedy策略
+    \item 最终保留的是target值函数，即伪代码里的$\hat{Q}(s,a;\theta)$
+    \item 离散动作空间，所以$a_{ph}$为1维。
+    \item 对于$\max_a Q(s,a;\theta)$的实现，需要对根据s生成的所有$Q(s,\cdot;\theta)$根据$a_{ph}$变量进行切片。使用了tf.gather\_nd()函数
+    \item 两个神经网络间的参数复制，使用tf.assign()函数。
+\end{enumerate}
+
+具体代码为
+\begin{lstlisting}[language=python,numbers=left,firstnumber = 0,numberstyle=\tiny,breaklines = true,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20}]
+def get_vars(scope):
+    return [x for x in tf.global_variables() if scope in x.name]}
+
+self.target_copy = tf.group([tf.assign(v_target, v_value) for v_value, v_target in zip(get_vars('value'), get_vars('target'))])
+\end{lstlisting}
+
+
+
+
+
+
 \section{策略优化的基础知识}
 考虑随机性参数化策略$\pi_\theta$，策略的目的是将回报的期望最大化。
 因此目标函数为

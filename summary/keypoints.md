@@ -48,3 +48,53 @@ dict = {'Alice': '2341', 'Beth': '9102', 'Cecil': '3258'}
 **kwargs
 
 不确定往函数中传递多少个关键词参数或者传入字典的值作为关键词参数的时候。
+
+**tensorflow里的索引切片**
+```
+index_col = np.array([0,1,2,1]).reshape([-1,1])
+index = np.hstack([np.arange(4).reshape([-1,1]), index_col])
+print(index)
+#index = 
+y = tf.gather_nd(testx, index.tolist())
+print('='*10)
+with tf.Session() as sess:
+    sess.run(tf.global_variables_initializer())
+    print(sess.run(testx))
+    print(sess.run(y))
+```
+结果为
+```
+[[0 0]
+ [1 1]
+ [2 2]
+ [3 1]]
+==========
+[[1 2 3]
+ [2 3 1]
+ [0 1 3]
+ [4 5 6]]
+[1 3 3 5]
+```
+使用tf.gather_nd()这个函数，但是需要注意索引项的shape应该和被索引项相同。
+
+直接对tensor操作：
+```
+a = np.array([1,3,4,5])
+xa = tf.Variable(a, dtype=tf.int32)
+y = tf.range(tf.shape(a)[0], dtype=tf.int32)
+yy = tf.stack([y,xa], axis=1)
+with tf.Session() as sess:
+    sess.run(tf.global_variables_initializer())
+    print(sess.run(xa))
+    print(sess.run(y))
+    print(sess.run(yy))
+```
+结果为
+```
+[1 3 4 5]
+[0 1 2 3]
+[[0 1]
+ [1 3]
+ [2 4]
+ [3 5]]
+```
