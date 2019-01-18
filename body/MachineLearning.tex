@@ -1,4 +1,117 @@
 \chapter{机器学习}
 这一部分主要是对JDAI中级培训的内容总结，对于课程中重要但又未详细讲解的地方，也会添加一些其他教材中的内容作为补充。
 
-\section{概述}
+\section{准备知识}
+\subsection{概述}
+机器学习的基本过程：
+
+1. 监督学习（有已知样本）：信息获取与预处理-->特征提取与特征选择-->分类器设计（训练）-->分类决策（识别）
+
+2. 非监督学习（无已知样本）：信息获取与预处理-->特征提取与特征选择-->聚类（自学习）-->结果解释
+
+机器学习技术主要包括:
+
+1. 分类:决策树、K近邻、逻辑回归、支持向量机、神经网络等。
+
+2. 聚类：C均值、模糊C均值、改进的模糊C均值等。
+
+机器学习的一些基本名词：
+\begin{enumerate}
+\item 特征(Feature)：样本的任何可区分且可观测的方面。包括定量、定性特征，但通常都转化为定量特征。特征向量、特征空间。
+\item 分类器：能够将每一个样本都分到某个类别中（或者拒绝）的算法。
+\end{enumerate}
+
+\subsection{统计学习三要素}
+统计学习方法=模型+策略+算法。以下对监督学习进行阐述。
+
+{\hei{模型}}就是所要学习到的条件概率分布或是决策函数。假设空间(hypothesis space)就是所有可能模型组成的集合。
+决策函数表示的模型为非概率模型，条件概率分布表示的模型为概率模型。
+
+{\hei{策略}}可以理解为确定优化目标函数，即按照什么样的准则来学习/选择最优模型。
+损失函数度量模型一次预测的好坏，风险函数度量平均意义下的模型预测好坏。学习的目标是选择期望风险最小的模型。
+
+训练数据集上的平均损失为经验风险。经验风险最小化、结构风险最小化。结构风险最小化等价于正则化。
+
+{\hei{算法}}是指学习模型的具体计算方法。
+
+
+\subsection{模型评估}
+模型评估的必要性？
+
+{\hei{$\blacksquare$ 过拟合问题}}
+
+Mitchell在Machine Learning中给了一个定义：Given a hypothesis space $H$, a hypothesis $h \in H$ 
+is said to overfit the training data if there exists some alternative hypothesis $h' \in H$,
+such that $h$ has smaller error than $h'$ over the training examples, but $h'$ has a smaller
+error than $h$ over the entire distribution of instances.
+
+在这个定义里并没有严格证明一定存在$h'$，所以可以理解过拟合也是一个相对而言的问题。
+简单来说，过拟合指所选取的模型在已知数据集上的预测效果很好，但对未知数据预测效果很差的现象。
+过拟合本质是一味追求在已知数据上的预测能力，选取的模型复杂度往往比真实模型更高，使得将样本数据本身所包含的噪声也作为真实数据进行学习。
+
+什么是模型复杂度？
+如何解决过拟合问题？
+
+{\hei{$\blacksquare$ 混淆矩阵}}
+
+针对实际问题时，主要关注混淆矩阵中非对角线上的元素，也就是分类器判断错误的样本。
+
+多分类问题也可以生成混淆矩阵，只不过不再是$2 \times 2$的矩阵(类别True、False),而是类别数的$n \times n$的矩阵。
+
+{\hei{$\blacksquare$ ROC曲线}}
+
+\section{Logistic Regression, LR}
+二分类LR模型为：
+\begin{gather*}
+    P(y=1|x) = \frac{e^{w\cdot x + b}}{1 + e^{w\cdot x + b}}\\
+    P(y=0|x) = \frac{1}{1 + e^{w\cdot x + b}}
+\end{gather*}
+其中$y\in{0,1}$为输出。
+
+假设一个事件的发生概率为$p$，定义事件发生的几率(odds)为发生概率与不发生概率的比值，则对数几率(log odds)或logit函数：
+\begin{equation*}
+    \text{logit} = \log \frac{p}{1-p}
+\end{equation*}
+那么对LR而言，有：
+\begin{equation*}
+    \text{logit}(x) = \log\frac{P(y=1|x)}{1-P({y=1|x})} = w\cdot x + b
+\end{equation*}
+也就是说线性运算的结果对应表示该事件$A(y=1|x)$的对数几率。
+
+可以通过比较$P(y=1|x)$和$P(y=0|x)$的大小，将$x$进行分类。但logistic决策的本质是根据logit(x)判断：
+若$\text{logit}(x) > 0$，则$x\in y_1$;若$\text{logit}(x) < 0$，则$x\in y_0$
+
+可以将二分类LR模型推广到多分类LR模型，其实就是Softmax回归：
+% \begin{gather*}
+%     P(y=k|x) = \frac{\text{exp}(w_k)\cdot x}{1 + \sum_{k=1}^{K-1} \text{exp}(w_k \cdot x)},\, k=1,2,\cdots,K-1 \\
+%     P(y=K|x) = \frac{1}{1 + \sum_{k=1}^{K-1} \text{exp}(w_k \cdot x)}
+% \end{gather*}
+\begin{equation*}
+    P(y=k|x) = \frac{\text{exp}(w_k\cdot x + b_k)}{\sum_{j=1}^K \text{exp}(w_j \cdot x + b_j)}
+\end{equation*}
+
+
+\subsection{Sigmoid函数与Softmax函数的区别}
+Sigmoid函数形式为：
+\begin{equation*}
+    \sigma(x) = \frac{1}{1 + e^{-x}} = \frac{e^{x}}{1 + e^{x}}
+\end{equation*}
+
+Softmax函数形式为：
+\begin{equation*}
+    \textbf{Softmax}(x_j) = \frac{e^{x_j}}{\sum_{k=1}^K e^{x_k}},\, j=1,2,\cdots,K
+\end{equation*}
+
+Sigmoid函数只考虑单变量，将其映射到(0,1)区间内，即使对向量做运算，向量每个元素间的结果无联系。
+Softmax函数则考虑了向量中的每一个元素，虽然每个元素的值也是映射到(0,1)区间内，但各元素之和为1。
+
+对于二值分类问题，Sigmoid函数和Softmax函数都输出两个值,假设输出[0, 1]代表“是”，输出[1, 0]代表“否”。\\
+那么Softmax可能输出[0.3, 0.7]，代表算法认为“是”的概率是0.7，“否”的概率是0.3，相加为1。\\
+Sigmoid的输出可能是[0.4, 0.8]，它们相加不为1。
+解释来说就是Sigmoid认为输出第一位为1的概率是0.4，第一位不为1的概率是0.6（1-p），第二位为1的概率是0.8，第二位不为1的概率是0.2。
+
+\subsection{Sigmoid函数多分类与Softmax函数多分类的区别}
+按照是否属于该类别的思路，可以设计多个使用Sigmoid函数的LR分类器。但是这样对每个分类器训练的时候，是/不是该类别的数据样本量会出现偏差。
+输出的结果向量中，每一个元素表示是/不是情况下，是该类别的概率，每个元素间不相关。
+
+而使用Softmax多分类，则输出结果表示每一个类别的可能性。
