@@ -1,6 +1,7 @@
 \chapter{强化学习}
 这一部分主要是对Spinning Up教程中的内容总结。
 
+\section{准备知识}
 于Model-Free RL，可以分为Policy Optimization和Q-Learning两类方法。
 Policy Optimization优化方法包括：PolicyGradient、A2C/A3C、TRPO、PPO等。
 Q-Learning方法包括：DQN、C51、QR-DQN、HER等。
@@ -25,6 +26,14 @@ a(s) = \arg \max_a Q_\theta(s,a)
 \end{equation*}
 
 而将两种方法结合起来的算法，就是同时估计$Q_\theta(s,a)$和$\pi_\theta(a|s)$
+
+\subsection{策略分类}
+on-policy, off-policy
+
+Deterministic Policies, Stochastic Policies
+
+Categorical Policies, Diagonal Gaussian Policies
+
 
 \section{DQN}
 Q-learning在每步迭代过程中，使用如下的损失函数：
@@ -53,6 +62,7 @@ DQN算法的几个核心特点包括：
     \item 最终保留的是target值函数，即伪代码里的$\hat{Q}(s,a;\theta)$
     \item 离散动作空间，所以$a_{ph}$为1维。
     \item 对于$\max_a Q(s,a;\theta)$的实现，需要对根据s生成的所有$Q(s,\cdot;\theta)$根据$a_{ph}$变量进行切片。使用了tf.gather\_nd()函数
+    \item 也可以使用tf.one_hot()进行切片：\texttt{q_sa = tf.reduce_sum(tf.one_hot(a, act_dim) * qvalue, axis=1)}
     \item 两个神经网络间的参数复制，使用tf.assign()函数。
 \end{enumerate}
 
@@ -132,3 +142,68 @@ self.target_copy = tf.group([tf.assign(v_target, v_value) for v_value, v_target 
 \noindent {\hei {2. 这里的“损失函数”无法衡量性能。}} 损失函数通常是对我们所关心的性能指标的一种估计。
 在这里，我们关系期望回报$J(\pi_\theta)$，但是定义的“损失函数”并不能对其进行估计。这里“损失函数”对我们的作用只是因为，在基于当前待优化参数采样的数据集下，损失函数的梯度与性能梯度相同。
 而在完成一次梯度下降之后，二者就没有什么联系了。这意味着，在给定的batch上，最小化损失函数并不能保证一定能够提高期望回报。
+
+\subsection{回报函数}
+式(\ref{eq: rl-dj})中在每一个采样状态下都以整条轨迹的回报$R(\tau)$作为当前状态的回报，这显然是不合适的。
+通常是否增强当前状态的某个行为，应该考虑执行该行为后的回报，而不是执行之前的历史回报。
+所以可以定义如下的"reward-to-go"
+\begin{equation*}
+    \hat{R}_t \doteq \sum_{t'=t}^T \gamma ^ {t'-t}R(s_{t'}, a_{t'}, s_{t'+1})
+\end{equation*}
+其中$\gamma$为回报的折扣率。
+
+考虑到可以证明：
+\begin{equation*}
+    \mathbb{E}_{a_t\sim\pi_\theta}[\nabla_\theta \log \pi_\theta(a_t|s_t)b(s_t)] = 0
+\end{equation*}
+所以可以在计算策略梯度的时候给回报部分增加一个只与状态相关的值函数$b(s_t)$，称为baseline。
+最常规的baseline选择就是当前策略的值函数$V^\pi(s_t)$。那么这个时候相当于用优势函数作为回报。
+通常$V^\pi(s-t)$无法直接得到，所以一般也是采用神经网络$V_\phi(s_t)$对最优动作值函数进行估计。
+
+所以一个更为一般形式的策略梯度为：
+\begin{equation}{\label{eq: general-pg}}
+    \nabla_\theta J(\pi_\theta) = \mathbb{E}_{\tau\sim\pi_\theta} \left[ \sum_{t=0}^T \nabla_\theta \log\pi_\theta(a_t|s_t) \Phi_t \right]
+\end{equation}
+其中$\Phi_t$可以取为不同形式的函数。
+
+\subsection{Generalized Advantage Estimation, GAE}
+假设$V$是Value值函数的一个近似，那么在折扣率$\gamma$下的TD残差可以表示为$\delta_t^V = r_t + \gamma V(s_{t+1}) - V(s_t)$
+显然$\delta_t^V$可以看成是优势函数在动作$a_t$下的一个估计。如果值函数是真实的$V = V^{\pi,\gamma}$
+\begin{equation*}
+    \mathbb{E}_{s_{t+1}}[\delta_t^{V^{\pi,\gamma}}] = \mathbb{E}_{s_{t+1}}[r_t + \gamma V^{\pi,\gamma}(s_{t+1}) - V^{\pi,\gamma}(s_t)] = A^{\pi,\gamma}(s_t, a_t)
+\end{equation*}
+
+通过推导可以得到：
+\begin{equation*}
+    \hat{A}_t^{GAE(\gamma,\lambda)} \doteq \sum_{l=0}^\infty (\gamma \lambda)^l \delta_{t+l}^V
+\end{equation*}
+表示了一种广义的优势函数的估计。$\lambda$为调节参数：
+\begin{gather*}
+    \text{GAE}(\gamma,\lambda=0):\, \hat{A}_t = \delta_t = r_t + \gamma V(s_{t+1}) - V(s_t) \\
+    \text{GAE}(\gamma,\lambda=1):\, \hat{A}_t = \sum_{l=0}^\infty \gamma^l \delta_{t+1} = \sum_{l=0}^\infty \gamma^l r_{t+1} - V(s_t)
+\end{gather*}
+$\text{GAE}(\gamma,0)$估计是无偏差的，但会引入较大的方差。$\text{GAE}(\gamma,1)$估计是有偏差的，但是方差较小。
+
+计算GAE的代码：
+\begin{lstlisting}[language=python,numbers=left,firstnumber = 0,numberstyle=\tiny,breaklines = true,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20}]
+def discount_cumsum(x, discount):
+"""
+magic from rllab for computing discounted cumulative sums of vectors.
+
+input: 
+    vector x, 
+    [x0, 
+        x1, 
+        x2]
+
+output:
+    [x0 + discount * x1 + discount^2 * x2,  
+        x1 + discount * x2,
+        x2]
+"""
+return scipy.signal.lfilter([1], [1, float(-discount)], x[::-1], axis=0)[::-1]
+
+deltas = rews[:-1] + self.gamma * vals[1:] - vals[:-1]
+self.adv_buf[path_slice] = discount_cumsum(deltas, self.gamma * self.lam)
+\end{lstlisting}
+

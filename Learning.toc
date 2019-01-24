@@ -70,6 +70,10 @@
 \contentsline {subsection}{\numberline {7.2.1}Sigmoid函数与Softmax函数的区别}{53}{subsection.7.2.1}
 \contentsline {subsection}{\numberline {7.2.2}Sigmoid函数多分类与Softmax函数多分类的区别}{53}{subsection.7.2.2}
 \contentsline {chapter}{\numberline {8}强化学习}{54}{chapter.8}
-\contentsline {section}{\numberline {8.1}DQN}{54}{section.8.1}
-\contentsline {section}{\numberline {8.2}策略优化的基础知识}{56}{section.8.2}
+\contentsline {section}{\numberline {8.1}准备知识}{54}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}策略分类}{54}{subsection.8.1.1}
+\contentsline {section}{\numberline {8.2}DQN}{55}{section.8.2}
+\contentsline {section}{\numberline {8.3}策略优化的基础知识}{56}{section.8.3}
+\contentsline {subsection}{\numberline {8.3.1}回报函数}{57}{subsection.8.3.1}
+\contentsline {subsection}{\numberline {8.3.2}Generalized Advantage Estimation, GAE}{58}{subsection.8.3.2}
 \contentsfinish 

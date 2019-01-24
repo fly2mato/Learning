@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.5.11)  18 JAN 2019 19:14
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.5.11)  22 JAN 2019 17:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2864,7 +2864,27 @@ Overfull \hbox (3.22418pt too wide) detected at line 73
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 74
+ \TU/ppl/m/n/12 54
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 75
+ \TU/ppl/m/n/12 54
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 76
  \TU/ppl/m/n/12 56
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 77
+ \TU/ppl/m/n/12 57
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 78
+ \TU/ppl/m/n/12 58
  []
 
 )
@@ -3128,20 +3148,26 @@ LaTeX Font Warning: Font shape `TU/ppl/bx/n' undefined
 \CJKnumber {8} 8.
 File: figures/rl-algorithms.png Graphic file (type bmp)
 <figures/rl-algorithms.png>
-LaTeX Font Info:    Try loading font information for U+fplmbb on input line 32.
+LaTeX Font Info:    Try loading font information for U+fplmbb on input line 41.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
-) [54
+)
+Underfull \vbox (badness 1377) has occurred while \output is active []
+
+ [54
 
 
 
 ]
 File: figures/DQN.png Graphic file (type bmp)
 <figures/DQN.png>
- [55]
+ [55] [56]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [56]) [57] [58
+ [57]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [58]) [59] [60
 
 
 
@@ -3155,7 +3181,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 82.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 82.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 82.
 Package rerunfilecheck Info: File `Learning.out' has not changed.
-(rerunfilecheck)             Checksum: 57D4A8E292372836071085E5D0817D96.
+(rerunfilecheck)             Checksum: 09B13B583D74665B544724AE55CEC906.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -3164,15 +3190,18 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 82.
  ) 
 Here is how much of TeX's memory you used:
- 45154 strings out of 492970
- 900284 string characters out of 6133938
- 1153392 words of memory out of 5000000
- 48274 multiletter control sequences out of 15000+600000
+ 45196 strings out of 492970
+ 900786 string characters out of 6133938
+ 1153438 words of memory out of 5000000
+ 48316 multiletter control sequences out of 15000+600000
  579548 words of font info for 219 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  57i,14n,93p,10474b,2626s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Learning.pdf (62 pages).
+Output written on Learning.pdf (64 pages).
