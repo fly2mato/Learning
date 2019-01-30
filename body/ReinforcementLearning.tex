@@ -1,7 +1,26 @@
 \chapter{强化学习}
-这一部分主要是对Spinning Up教程中的内容总结。
+\section{强化学习里的对比思考}
+\subsection{策略迭代与值迭代}
+先参考\href{https://zhuanlan.zhihu.com/p/55217561}{\texttt{这个回答}}。
+策略迭代(Policy iteration)的伪代码如图\ref{fig: policy-iteration}所示。
+\begin{figure}[htbp]
+	\figskip 
+	\centering
+	\includegraphics[width = 0.85\textwidth,trim = 0 -0 0 -0,clip]{policy-iteration.png}	  
+	\caption{\label{fig: policy-iteration} 策略迭代算法}
+\end{figure}
+策略迭代中，首先以一个固定的策略（具有概率分布），开始对值函数进行迭代，当值函数稳定后，进行策略提升（更新策略，比如按照greedy的形式）。
+然后重复上述步骤直到策略稳定。值迭代(Value iteration)的伪代码如图\ref{fig: value-iteration}所示。
+\begin{figure}[htbp]
+	\figskip 
+	\centering
+	\includegraphics[width = 0.85\textwidth,trim = 0 -0 0 -0,clip]{value-iteration.png}	  
+	\caption{\label{fig: value-iteration} 值迭代算法}
+\end{figure}
+值迭代可以认为策略只选择greedy策略，每做一次值函数迭代，都进行了策略提升（表现在值函数更新时使用的max函数）。
 
-\section{准备知识}
+
+\section{深度强化学习准备知识}
 于Model-Free RL，可以分为Policy Optimization和Q-Learning两类方法。
 Policy Optimization优化方法包括：PolicyGradient、A2C/A3C、TRPO、PPO等。
 Q-Learning方法包括：DQN、C51、QR-DQN、HER等。
@@ -27,13 +46,18 @@ a(s) = \arg \max_a Q_\theta(s,a)
 
 而将两种方法结合起来的算法，就是同时估计$Q_\theta(s,a)$和$\pi_\theta(a|s)$
 
+\subsection{Q-Learning 和 Policy Gradient的对比}
+参考\href{https://www.zhihu.com/question/49787932}{\texttt{这个问题}}
+
+
+
+
 \subsection{策略分类}
 on-policy, off-policy
 
 Deterministic Policies, Stochastic Policies
 
 Categorical Policies, Diagonal Gaussian Policies
-
 
 \section{DQN}
 Q-learning在每步迭代过程中，使用如下的损失函数：

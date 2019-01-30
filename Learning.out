@@ -70,9 +70,15 @@
 \BOOKMARK [2][]{subsection.7.2.1}{7.2.1 Sigmoid函数与Softmax函数的区别}{section.7.2}% 70
 \BOOKMARK [2][]{subsection.7.2.2}{7.2.2 Sigmoid函数多分类与Softmax函数多分类的区别}{section.7.2}% 71
 \BOOKMARK [0][]{chapter.8}{8 强化学习}{}% 72
-\BOOKMARK [1][]{section.8.1}{8.1 准备知识}{chapter.8}% 73
-\BOOKMARK [2][]{subsection.8.1.1}{8.1.1 策略分类}{section.8.1}% 74
-\BOOKMARK [1][]{section.8.2}{8.2\040DQN}{chapter.8}% 75
-\BOOKMARK [1][]{section.8.3}{8.3 策略优化的基础知识}{chapter.8}% 76
-\BOOKMARK [2][]{subsection.8.3.1}{8.3.1 回报函数}{section.8.3}% 77
-\BOOKMARK [2][]{subsection.8.3.2}{8.3.2\040Generalized\040Advantage\040Estimation,\040GAE}{section.8.3}% 78
+\BOOKMARK [1][]{section.8.1}{8.1 强化学习里的对比思考}{chapter.8}% 73
+\BOOKMARK [2][]{subsection.8.1.1}{8.1.1 策略迭代与值迭代}{section.8.1}% 74
+\BOOKMARK [1][]{section.8.2}{8.2 深度强化学习准备知识}{chapter.8}% 75
+\BOOKMARK [2][]{subsection.8.2.1}{8.2.1 Q-Learning 和 Policy Gradient的对比}{section.8.2}% 76
+\BOOKMARK [2][]{subsection.8.2.2}{8.2.2 策略分类}{section.8.2}% 77
+\BOOKMARK [1][]{section.8.3}{8.3\040DQN}{chapter.8}% 78
+\BOOKMARK [1][]{section.8.4}{8.4 策略优化的基础知识}{chapter.8}% 79
+\BOOKMARK [2][]{subsection.8.4.1}{8.4.1 回报函数}{section.8.4}% 80
+\BOOKMARK [2][]{subsection.8.4.2}{8.4.2\040Generalized\040Advantage\040Estimation,\040GAE}{section.8.4}% 81
+\BOOKMARK [0][]{chapter.9}{9 一些有趣的概率问题}{}% 82
+\BOOKMARK [1][]{section.9.1}{9.1 三门问题}{chapter.9}% 83
+\BOOKMARK [1][]{section.9.2}{9.2 吸收马尔可夫过程}{chapter.9}% 84
