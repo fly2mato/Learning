@@ -1,0 +1,15 @@
+\chapter{代码总结}
+\section{代码}
+\subsection{const 关键字的使用}
+\href{https://blog.csdn.net/lf1570180470/article/details/56677748}{参考1}
+\href{https://www.cnblogs.com/azbane/p/7266747.html}{参考2}
+
+1. const修饰一个变量，表明其为一个常量，初始化赋值后不能被修改。
+
+2. const修饰指针，可以定义为一个指针常量(int * const p)，其只能指向初始化的地址; 可以定义为一个常量指针(const int * p), 其只能指向常量; 最后可以定义一个指向常量的指针常量(const int * const p)
+
+3. const修饰函数的传入参数，表明其在函数体内部不允许被修改。一般只对非内部类型，使用常量引用的形式const \&
+
+4. const修饰类成员函数返回值，表明其不能作为左值使用
+
+5. const修饰类成员函数，表明该函数不允许修改类的成员变量。任何不会修改数据成员的函数都应该声明为const类型: int fun(int a) const;

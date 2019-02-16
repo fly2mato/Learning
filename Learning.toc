@@ -61,25 +61,28 @@
 \contentsline {subsection}{\numberline {6.3.2}Bezier曲线 和 B-spline曲线}{48}{subsection.6.3.2}
 \contentsline {subsection}{\numberline {6.3.3}其他形式曲线}{49}{subsection.6.3.3}
 \contentsline {subsection}{\numberline {6.3.4}多项式轨迹}{49}{subsection.6.3.4}
-\contentsline {chapter}{\numberline {7}机器学习}{51}{chapter.7}
-\contentsline {section}{\numberline {7.1}准备知识}{51}{section.7.1}
-\contentsline {subsection}{\numberline {7.1.1}概述}{51}{subsection.7.1.1}
-\contentsline {subsection}{\numberline {7.1.2}统计学习三要素}{51}{subsection.7.1.2}
-\contentsline {subsection}{\numberline {7.1.3}模型评估}{51}{subsection.7.1.3}
-\contentsline {section}{\numberline {7.2}Logistic Regression, LR}{52}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Sigmoid函数与Softmax函数的区别}{53}{subsection.7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}Sigmoid函数多分类与Softmax函数多分类的区别}{53}{subsection.7.2.2}
-\contentsline {chapter}{\numberline {8}强化学习}{54}{chapter.8}
-\contentsline {section}{\numberline {8.1}强化学习里的对比思考}{54}{section.8.1}
-\contentsline {subsection}{\numberline {8.1.1}策略迭代与值迭代}{54}{subsection.8.1.1}
-\contentsline {section}{\numberline {8.2}深度强化学习准备知识}{55}{section.8.2}
-\contentsline {subsection}{\numberline {8.2.1}Q-Learning 和 Policy Gradient的对比}{55}{subsection.8.2.1}
-\contentsline {subsection}{\numberline {8.2.2}策略分类}{55}{subsection.8.2.2}
-\contentsline {section}{\numberline {8.3}DQN}{56}{section.8.3}
-\contentsline {section}{\numberline {8.4}策略优化的基础知识}{57}{section.8.4}
-\contentsline {subsection}{\numberline {8.4.1}回报函数}{58}{subsection.8.4.1}
-\contentsline {subsection}{\numberline {8.4.2}Generalized Advantage Estimation, GAE}{59}{subsection.8.4.2}
-\contentsline {chapter}{\numberline {9}一些有趣的概率问题}{61}{chapter.9}
-\contentsline {section}{\numberline {9.1}三门问题}{61}{section.9.1}
-\contentsline {section}{\numberline {9.2}吸收马尔可夫过程}{61}{section.9.2}
+\contentsline {chapter}{\numberline {7}代码总结}{51}{chapter.7}
+\contentsline {section}{\numberline {7.1}代码}{51}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}const 关键字的使用}{51}{subsection.7.1.1}
+\contentsline {chapter}{\numberline {8}机器学习}{52}{chapter.8}
+\contentsline {section}{\numberline {8.1}准备知识}{52}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}概述}{52}{subsection.8.1.1}
+\contentsline {subsection}{\numberline {8.1.2}统计学习三要素}{52}{subsection.8.1.2}
+\contentsline {subsection}{\numberline {8.1.3}模型评估}{52}{subsection.8.1.3}
+\contentsline {section}{\numberline {8.2}Logistic Regression, LR}{53}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}Sigmoid函数与Softmax函数的区别}{54}{subsection.8.2.1}
+\contentsline {subsection}{\numberline {8.2.2}Sigmoid函数多分类与Softmax函数多分类的区别}{54}{subsection.8.2.2}
+\contentsline {chapter}{\numberline {9}强化学习}{55}{chapter.9}
+\contentsline {section}{\numberline {9.1}强化学习里的对比思考}{55}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}策略迭代与值迭代}{55}{subsection.9.1.1}
+\contentsline {section}{\numberline {9.2}深度强化学习准备知识}{56}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}Q-Learning 和 Policy Gradient的对比}{56}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.2}策略分类}{56}{subsection.9.2.2}
+\contentsline {section}{\numberline {9.3}DQN}{57}{section.9.3}
+\contentsline {section}{\numberline {9.4}策略优化的基础知识}{58}{section.9.4}
+\contentsline {subsection}{\numberline {9.4.1}回报函数}{59}{subsection.9.4.1}
+\contentsline {subsection}{\numberline {9.4.2}Generalized Advantage Estimation, GAE}{60}{subsection.9.4.2}
+\contentsline {chapter}{\numberline {10}一些有趣的概率问题}{62}{chapter.10}
+\contentsline {section}{\numberline {10.1}三门问题}{62}{section.10.1}
+\contentsline {section}{\numberline {10.2}吸收马尔可夫过程}{62}{section.10.2}
 \contentsfinish 
