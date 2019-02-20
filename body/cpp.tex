@@ -13,3 +13,14 @@
 4. const修饰类成员函数返回值，表明其不能作为左值使用
 
 5. const修饰类成员函数，表明该函数不允许修改类的成员变量。任何不会修改数据成员的函数都应该声明为const类型: int fun(int a) const;
+
+\subsection{用标准库构造堆}
+\href{http://www.cplusplus.com/reference/algorithm/make_heap/?kw=make_heap}{参考}
+
+1. 对于一个vector,可以使用std::make_heap生成一个堆，默认是大顶堆(less<int>())，如果使用小顶堆，比较器使用greater<int>()
+
+2. std::pop_heap,将堆顶元素移到vector的末尾，同时进行调整。小顶堆使用greater<int>()
+
+3. std::push_heap，将vector末尾的元素视为新插入的元素，并进行调整。小顶堆使用greater<int>()
+
+4. 调整后的结果并不是对vector进行排序。std::sort_heap则是进行排序。
