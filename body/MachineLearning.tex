@@ -32,6 +32,13 @@
 
 训练数据集上的平均损失为经验风险。经验风险最小化、结构风险最小化。结构风险最小化等价于正则化。
 
+{\color{red} 损失函数、代价函数、目标函数的区别}
+\begin{enumerate}
+\item 损失函数(loss fun.)，也可以理解为误差函数(error fun.)，针对单个样本点。
+\item 代价函数(cost fun.)，针对整个样本集/训练集而言。可以认为是所有样本点损失函数的平均。
+\item 目标函数(object fun.)，一般是代价函数+正则项。    
+\end{enumerate}
+
 {\hei{算法}}是指学习模型的具体计算方法。
 
 
@@ -59,6 +66,50 @@ error than $h$ over the entire distribution of instances.
 多分类问题也可以生成混淆矩阵，只不过不再是$2 \times 2$的矩阵(类别True、False),而是类别数的$n \times n$的矩阵。
 
 {\hei{$\blacksquare$ ROC曲线}}
+
+\subsection{交叉熵代价函数}
+{\hei{$\blacksquare$ 信息熵}}： 消除不确定性所需要的信息量的度量。
+
+令事件x的信息量表示为$I(x)$,假设信息量与概率有关。
+考虑两个独立不相关事件x和y，显然有$I(x,y) = I(x)+I(y)$，而$p(x,y)=p(x)*p(y)$。
+所以可以定义信息量为：
+\begin{equation*}
+    I(x) = -\log p(x)
+\end{equation*}
+取负号是为了保证信息量为正。对数函数可以任意选取，信息论中以2为底，机器学习通常以e为底。
+对于随机变量X，信息熵为：
+\begin{equation*}
+    H(X) = \mathbb{E}[-\log p(X)] = - \sum_i p(x_i) \log p(x_i)
+\end{equation*}
+
+{\hei{$\blacksquare$ 相对熵(KL散度)}}：描述两个概率分布的非对称性度量。定义为
+\begin{equation*}
+    D_{KL}(p||q) = -\sum_i p(x_i) \log \frac{q(x_i)}{p(x_i)}
+\end{equation*}
+{\color{red}尽管从直觉上KL散度是个度量或距离函数, 但是它实际上并不是一个真正的度量或距離。因為KL散度不具有对称性：从分布P到Q的距离通常并不等于从Q到P的距离。
+$D_{KL}(p||q) \neq D_{KL}(q||p)$} 
+
+通常$p(x)$表示真实（样本）概率分布，$q(x)$表示模型概率分布。显然可以使用相对熵作为代价函数，使得模型生成的概率分布逼近真实样本的概率分布。
+所以进一步，对$D_{KL}(p||q)$变换可得
+\begin{align*}
+    D_{KL}(p||q) &= -\sum_i p(x_i) \log q(x_i) + \sum_i p(x_i) \log p(x_i) \\
+    &= H(p,q) - H(p)
+\end{align*}
+其中$H(p,q) = -\sum_i p(x_i) \log q(x_i)$即表示交叉熵。
+由于真实（样本）概率分布是固定的，所以交叉熵也可以作为代价函数，计算更简便。
+
+对于二分类问题，单个样本点上的损失函数可以表示为二元交叉熵的形式：
+\begin{equation*}
+    L = -[y\log \hat{y} + (1-y)\log (1-\hat{y})]
+\end{equation*}
+
+\subsection{对数损失函数}
+对数损失函数为
+\begin{equation*}
+    L(Y, P(Y|X)) = -\log P(Y|X)
+\end{equation*}
+
+
 
 \section{Logistic Regression, LR}
 二分类LR模型为：
@@ -90,7 +141,6 @@ error than $h$ over the entire distribution of instances.
     P(y=k|x) = \frac{\text{exp}(w_k\cdot x + b_k)}{\sum_{j=1}^K \text{exp}(w_j \cdot x + b_j)}
 \end{equation*}
 
-
 \subsection{Sigmoid函数与Softmax函数的区别}
 Sigmoid函数形式为：
 \begin{equation*}
@@ -115,3 +165,53 @@ Sigmoid的输出可能是[0.4, 0.8]，它们相加不为1。
 输出的结果向量中，每一个元素表示是/不是情况下，是该类别的概率，每个元素间不相关。
 
 而使用Softmax多分类，则输出结果表示每一个类别的可能性。
+
+\subsection{二分类逻辑回归求解}
+二分类逻辑回归模型可以统一表示为：
+\begin{equation*}
+    P(y|x;\theta) = (\sigma_\theta(x))^y \cdot (1-\sigma_\theta(x))^{(1-y)}
+\end{equation*}
+其中，$\sigma_\theta(x) = \sigma(\theta^T x)$。
+二分类逻辑回归就是在样本$X$上找到最大可能的概率分布$P(Y|X;\theta)$，显然是一个求解极大似然的问题。
+似然函数：
+\begin{align*}
+    L(\theta) &= P(Y|X;\theta) = \prod_i P(y_i|x_i;\theta) 
+\end{align*}
+取对数并取反,即采用对数损失函数（交叉熵代价函数）
+\begin{align*}
+    L = -\log L(\theta) &= -\log P(Y|X;\theta) = -\sum_i P(y_i|x_i;\theta) \\ 
+    &= - \sum_i \left[ y_i \log (\sigma_\theta(x_i)) + (1-y_i) \log (1-\sigma_\theta(x_i))\right]
+\end{align*}
+
+由于$\nabla_x \sigma(x) = \sigma(x)(1-\sigma(x))$，所以对$L$求梯度可得：
+\begin{equation*}
+    \nabla_\theta L = -\sum_i (y_i - \sigma_\theta(x_i))x_i
+\end{equation*}
+
+{\hei{$\bigstar$ 为什么逻辑回归要使用交叉熵代价函数？}}
+
+1. 为什么可以使用交叉熵代价函数：目的是为了让样本预测的概率可能性最大，
+并且训练求解参数的速度是比较快的，而且更新速度只和x，y有关，比较的稳定。
+
+2. 为什么不用平方损失函数：梯度更新速度和 sigmod 函数的梯度相关，训练速度会非常慢且有梯度消失的可能。
+而且平方损失会导致损失函数是 theta 的非凸函数，不利于求解，因为非凸函数存在很多局部最优解。
+
+使用交叉熵代价（对数损失）函数的本质目的在于极大似然的原理。即使激活函数使用ReLU,仍然可以使用。
+
+\subsection{softmax多分类求解}
+采用softmax的多分类逻辑回归模型可以统一表示为：
+\begin{equation*}
+    P(y|x;\theta) = \sum_{i=1}^k \mathbb{1}\{ y_j=i \} \frac{e^{\theta_i^T x}}{\sum_k e^{\theta_k^T x}}
+\end{equation*}
+同样按照求解极大似然估计问题，取对数损失函数为：
+\begin{align*}
+    L &= -\log P(Y|X;\theta) = -\sum_j P(y_j|x_j;\theta) \\
+    &= -\sum_{j=1}^{m} \sum_{i=1}^k \mathbb{1}\{ y_j=i \} \log \left[\frac{e^{\theta_i^T x_j}}{\sum_k e^{\theta_k^T x_j}} \right] \\
+    &= -\sum_{j=1}^{m} \sum_{i=1}^k \mathbb{1}\{ y_j=i \} \left( \theta_i^T x_j - \log \sum_k e^{\theta_k^T x_j} \right)\\
+\end{align*}
+求梯度可的：
+\begin{align*}
+    \Q{L(\theta)}{\theta_i} &= -\sum_{j=1}^{m} \mathbb{1}\{ y_j=i \} \left(x_j - \Q{\log \sum_k e^{\theta_k^T x_j}}{\theta_i} \right)\\
+    &= -\sum_{j=1}^{m} \mathbb{1}\{ y_j=i \} \left(x_j - x_j \frac{e^{\theta_i^T x_j}}{\sum_k e^{\theta_k^T x_j}} \right)\\
+    &= -\sum_{j=1}^{m} x_j \left[ \mathbb{1}\{ y_j=i \} - P(y_j=i|x_j;\theta) \right]
+\end{align*}
