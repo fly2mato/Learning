@@ -1,5 +1,91 @@
-\chapter{代码总结}
-\section{代码}
+\chapter{C++}
+\section{基础算法}
+排序算法的稳定性：排序前后相同元素的相对位置不变，则称排序算法是稳定的；否则排序算法是不稳定的
+\subsection{快速排序}
+平均时间复杂度$O(n\log n)$，最快情况为$O(n^2)$
+
+\begin{lstlisting}[language=c++,numbers=left,firstnumber = 0,numberstyle=\tiny,breaklines = true,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20}]
+	
+template<typename T>
+void quick_sort(vector<T> &nums, int left, int right){
+    if (left >= right) return;
+    int low = left;
+    int high = right;
+    T val = nums[left];
+    while(left < right) {
+        while(left<right && nums[right] >= val) right--;
+        nums[left] = nums[right];
+        while(left<right && nums[left] <= val) left++;
+        nums[right] = nums[left];
+        }
+    nums[left] = val;
+    quick_sort(nums, low, left-1);
+    quick_sort(nums, left+1, high); 
+}
+\end{lstlisting}
+
+\subsection{堆排序}
+平均时间复杂度$O(n\log n)$，最快情况为$O(n\log n)$
+
+\begin{lstlisting}[language=c++,numbers=left,firstnumber = 0,numberstyle=\tiny,breaklines = true,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20}]
+
+template<typename T>
+void heap_max(vector<T> &nums, int start, int end){
+    int dad = start;
+    int son = dad * 2 + 1;
+    while(son <= end){
+        if (son+1 <= end && nums[son] < nums[son+1]) son++;
+        if (nums[dad] >= nums[son]) return;
+        else {
+            swap(nums[dad], nums[son]);
+            dad = son;
+            son = son * 2 + 1;
+        }
+    }
+    return;
+}
+
+template<typename T>
+void heap_sort(vector<T> &nums, int start, int end){
+    for(int i = end; i >= 0; --i){
+        heap_max(nums, i, end);
+    }
+    for(int i=0; i <= end; ++i){
+        swap(nums[0], nums[end-i]);
+        heap_max(nums, 0, end-1-i);
+    }
+}
+
+\end{lstlisting}
+
+
+\subsection{计数排序}
+平均时间复杂度和最坏时间复杂度都是$O(n+k)$，稳定排序。
+\begin{lstlisting}[language=c++,numbers=left,firstnumber = 0,numberstyle=\tiny,breaklines = true,keywordstyle=\color{blue!70},commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20}]
+void countsort(vector<int> &nums, int start, int end){
+    int min = 0x7fffffff;
+    int max = 0x80000000;
+    for(auto n:nums){
+        if (min>n) min=n;
+        if (max<n) max=n;
+    }
+    vector<int> counts(max-min+1, 0);
+    vector<int> ans(nums.size(),0);
+    for(auto n:nums){
+        counts[n-min]++;
+    }
+    for(int i=1; i<counts.size(); ++i) counts[i] += counts[i-1];
+    for(int i=0; i<nums.size(); ++i) {
+        ans[counts[nums[i]-min]-- -1] = nums[i]; //--对应于重复的数字
+    }
+    for(int i=0; i<nums.size(); ++i) nums[i] = ans[i];
+}
+\end{lstlisting}
+
+
+
+
+\section{语言使用}
 \subsection{const 关键字的使用}
 \href{https://blog.csdn.net/lf1570180470/article/details/56677748}{参考1}
 \href{https://www.cnblogs.com/azbane/p/7266747.html}{参考2}
