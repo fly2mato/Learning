@@ -33,8 +33,6 @@ Dijikstra算法采用贪心思想，维护两个点集$A$,$B$。$A$点集代表�
 Dijkstra算法能够求解图中单源点到其他所有点的最短路径。时间复杂度为$O(|V|^2)$，$|V|$表示顶点个数。
 如果采用优先队列，时间复杂度为$O(|E|+|V|\log|V|)$，$|E|$表示边数。
 
-
-%\begin{algorithm}[h] \caption{An example for format For \& While Loop in Algorithm} \begin{algorithmic}[1] \FOR{each $i \in [1,9]$} \STATE initialize a tree $T_{i}$ with only a leaf (the root);\ \STATE $T=T \cup T_{i};$\ \ENDFOR \FORALL {$c$ such that $c \in RecentMBatch(E_{n-1})$} \label{code:TrainBase:getc} \STATE $T=T \cup PosSample(c)$; \label{code:TrainBase:pos} \ENDFOR \FOR{$i=1$; $i<n$; $i++$ } \STATE $//$ Your source here; \ENDFOR \FOR{$i=1$ to $n$} \STATE $//$ Your source here; \ENDFOR \STATE $//$ Reusing recent base classifiers. \label{code:recentStart} \WHILE {$(|E_n| \leq L_1 )and( D \neq \phi)$} \STATE Selecting the most recent classifier $c_i$ from $D$; \STATE $D=D-c_i$; \STATE $E_n=E_n+c_i$; \ENDWHILE \label{code:recentEnd} \end{algorithmic} \end{algorithm}
 \begin{algorithm}[h] \caption{Dijkstra algorithm} 
 \begin{algorithmic}[1] 
 \FOR{each vertex $v \in V[G]$} 
