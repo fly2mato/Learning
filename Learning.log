@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.5.11)  26 FEB 2019 09:26
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.5.11)  26 FEB 2019 10:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2722,7 +2722,7 @@ Overfull \hbox (3.22418pt too wide) detected at line 77
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 78
- \TU/ppl/m/n/12 56
+ \TU/ppl/m/n/12 55
  []
 
 
@@ -2732,12 +2732,12 @@ Overfull \hbox (3.22418pt too wide) detected at line 79
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 80
- \TU/ppl/m/n/12 57
+ \TU/ppl/m/n/12 56
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 81
- \TU/ppl/m/n/12 57
+ \TU/ppl/m/n/12 56
  []
 
 
@@ -2747,89 +2747,109 @@ Overfull \hbox (3.22418pt too wide) detected at line 82
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 83
- \TU/ppl/m/n/12 58
+ \TU/ppl/m/n/12 57
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 84
- \TU/ppl/m/n/12 60
+ \TU/ppl/m/n/12 58
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 85
- \TU/ppl/m/n/12 60
+ \TU/ppl/m/n/12 58
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 86
- \TU/ppl/m/n/12 60
+ \TU/ppl/m/n/12 58
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 87
- \TU/ppl/m/n/12 61
+ \TU/ppl/m/n/12 59
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 88
- \TU/ppl/m/n/12 62
+ \TU/ppl/m/n/12 60
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 89
- \TU/ppl/m/n/12 62
+ \TU/ppl/m/n/12 60
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 90
- \TU/ppl/m/n/12 62
+ \TU/ppl/m/n/12 60
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 91
- \TU/ppl/m/n/12 63
+ \TU/ppl/m/n/12 61
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 92
- \TU/ppl/m/n/12 65
+ \TU/ppl/m/n/12 62
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 93
- \TU/ppl/m/n/12 65
+ \TU/ppl/m/n/12 62
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 94
- \TU/ppl/m/n/12 66
+ \TU/ppl/m/n/12 62
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 95
- \TU/ppl/m/n/12 66
+ \TU/ppl/m/n/12 63
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 96
- \TU/ppl/m/n/12 67
+ \TU/ppl/m/n/12 65
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 97
- \TU/ppl/m/n/12 68
+ \TU/ppl/m/n/12 65
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 98
- \TU/ppl/m/n/12 68
+ \TU/ppl/m/n/12 66
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 99
+ \TU/ppl/m/n/12 66
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
-Overfull \hbox (3.22418pt too wide) detected at line 99
+Overfull \hbox (3.22418pt too wide) detected at line 100
+ \TU/ppl/m/n/12 67
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 101
+ \TU/ppl/m/n/12 68
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 102
+ \TU/ppl/m/n/12 68
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 103
  \TU/ppl/m/n/12 68
  []
 
@@ -3120,7 +3140,7 @@ Underfull \vbox (badness 1024) has occurred while \output is active []
 
 
 ]
-LaTeX Font Info:    Try loading font information for U+fplmbb on input line 82.
+LaTeX Font Info:    Try loading font information for U+fplmbb on input line 88.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
@@ -3182,7 +3202,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 86.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 86.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 86.
 Package rerunfilecheck Info: File `Learning.out' has not changed.
-(rerunfilecheck)             Checksum: C8D94546B9E8D54183767403086048E2.
+(rerunfilecheck)             Checksum: 86C0DBDCB555F8C0FC0D86B775836FCC.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -3197,10 +3217,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 86.
  ) 
 Here is how much of TeX's memory you used:
- 43294 strings out of 492970
- 841417 string characters out of 6133938
- 1109138 words of memory out of 5000000
- 46410 multiletter control sequences out of 15000+600000
+ 43315 strings out of 492970
+ 842758 string characters out of 6133938
+ 1109143 words of memory out of 5000000
+ 46431 multiletter control sequences out of 15000+600000
  575313 words of font info for 201 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  57i,14n,93p,10474b,2230s stack positions out of 5000i,500n,10000p,200000b,80000s

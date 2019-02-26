@@ -67,6 +67,12 @@ error than $h$ over the entire distribution of instances.
 
 {\hei{$\blacksquare$ ROC曲线}}
 
+坐标横轴为False Positive Rate(FPR, FP/P)，坐标纵轴为True Positive Rate(TPR, TP/{\color{red}N})
+
+
+\subsection{归一化与标准化}
+
+
 \subsection{交叉熵代价函数}
 {\hei{$\blacksquare$ 信息熵}}： 消除不确定性所需要的信息量的度量。
 
@@ -109,6 +115,39 @@ $D_{KL}(p||q) \neq D_{KL}(q||p)$}
     L(Y, P(Y|X)) = -\log P(Y|X)
 \end{equation*}
 
+\section{梯度下降及线性回归}
+\subsection{基本算法}
+求解无约束最优化问题：
+\begin{equation*}
+    \min_{x \in R^n} f(x)
+\end{equation*}
+从初始值$x^{(0)}$开始，按照负梯度方向逐步迭代直到收敛。令$g_k = \nabla f(x^{(k)})$表示$f(x)$在$x^{(k)}$处的梯度，
+则迭代公式为：
+\begin{equation*}
+    x^{(k+1)} = x^{(k)} - \alpha_k g_k
+\end{equation*}
+当$||g_k|| < \epsilon$、$||f(x^{(k+1)}) - f(x^{(k)})|| < \epsilon$或者$||x^{(k+1)} - x^{(k)} < \epsilon||$时停止迭代。
+
+需要注意的是关于学习率或者步长$\alpha$，通常选取为固定值，但是在《统计学习方法》的附录中，$\alpha$是通过一维搜索确定的：
+$\alpha_k = \arg \min f(x^{(k)} - \alpha g_k)$
+
+\subsection{线性回归}
+假设共$m$个样本点，每个样本具有$n$维特征，则定义$X \in R^{m \times (n+1)}$，$Y \in R^{m\times 1}$，
+$\theta \in R^{(n+1)\times 1}$，其中$X$包含了常值特征，$\theta$包含了偏置系数。
+\begin{align*}
+    L(\theta) &= \frac{1}{m} (Y-X\theta)^T (Y-X\theta) \\
+    &= \frac{1}{m} \sum_{i=1}^m (y_i - x_i \theta)^2
+\end{align*}
+梯度为：
+\begin{equation*}
+    \nabla_\theta L(\theta) = -\frac{2}{m} X^T (Y-X\theta)
+\end{equation*}
+
+{\hei{$\bigstar$ 思考与总结}}
+\begin{enumerate}
+\item 每一个样本点按照行向量的形式表示，这可以从代码的角度理解：新数据都是先填充完一行，在堆叠。例如二维vector。
+\item 可以预先增加对样本的标准化/归一化处理，这样求解的步长、收敛阈值等都可以固定，同时可以显著提高收敛速度。
+\end{enumerate}
 
 
 \section{Logistic Regression, LR}
