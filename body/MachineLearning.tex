@@ -71,6 +71,13 @@ error than $h$ over the entire distribution of instances.
 
 
 \subsection{归一化与标准化}
+待确定
+
+1. 归一化对原始数据每一个特征的缩放，使得每个特征的联合分布的情况被改变（椭圆变成圆）;
+
+2. 但是由于各个特征的重要性平衡，在迭代求解的时候速度更快;
+
+3. 标准化也是对各个特征进行缩放，但保持原联合分布,只是使得各特征之间能进行比较。
 
 
 \subsection{交叉熵代价函数}
@@ -218,7 +225,7 @@ Sigmoid的输出可能是[0.4, 0.8]，它们相加不为1。
 \end{align*}
 取对数并取反,即采用对数损失函数（交叉熵代价函数）
 \begin{align*}
-    L = -\log L(\theta) &= -\log P(Y|X;\theta) = -\sum_i P(y_i|x_i;\theta) \\ 
+    L = -\log L(\theta) &= -\log P(Y|X;\theta) = -\sum_i \log P(y_i|x_i;\theta) \\ 
     &= - \sum_i \left[ y_i \log (\sigma_\theta(x_i)) + (1-y_i) \log (1-\sigma_\theta(x_i))\right]
 \end{align*}
 
@@ -254,3 +261,40 @@ Sigmoid的输出可能是[0.4, 0.8]，它们相加不为1。
     &= -\sum_{j=1}^{m} \mathbb{1}\{ y_j=i \} \left(x_j - x_j \frac{e^{\theta_i^T x_j}}{\sum_k e^{\theta_k^T x_j}} \right)\\
     &= -\sum_{j=1}^{m} x_j \left[ \mathbb{1}\{ y_j=i \} - P(y_j=i|x_j;\theta) \right]
 \end{align*}
+
+
+\section{支持向量机 SVM}
+是二分类模型，基本模型是定义在特征空间上间隔最大的线性分类器。使用核技巧的时候，成为非线性非类器。
+分离超平面为$x^T w + b = 0$，决策函数：
+\begin{equation*}
+    f(x) = \text{sign}(x^T w + b)
+\end{equation*}
+
+基本的思路：
+\begin{enumerate}
+\item 定义样本点到超平面$(w,b)$的距离最小值
+\item 如何表示每个样本点的距离都大于这个最小值？$y_i(x_i^T w + b) \ge \hat{\gamma}$
+\item 优化问题就是最大化这个最小值。
+\item 等价为最小化$||w||^2$在给定的约束情况下
+\item 求解对偶问题
+\end{enumerate}
+
+\subsection{SMO}
+拉格朗日对偶
+SMO
+核函数基本是面试必问了
+
+比如为什么要用拉格朗日对偶，核函数的本质是什么，SMO与坐标下降法的区别
+
+\subsection{优缺点}
+{\hei{$\blacksquare$ 优点}}
+\begin{enumerate}
+\item 在小样本上是一种不同于概率学习的方法，也具有较好的分类准确性
+\item 判别函数只和支持向量相关，相当于抓住了关键样本，具有较好的鲁棒性
+\end{enumerate}
+
+{\hei{$\blacksquare$ 缺点}}
+\begin{enumerate}
+\item 样本量较大的时候计算复杂度难以承受
+\item 只能用于二分类问题
+\end{enumerate}

@@ -98,3 +98,17 @@ with tf.Session() as sess:
  [2 4]
  [3 5]]
 ```
+
+
+**EIGEN广播的实现**
+```
+MatrixXf mat(3, 2);
+mat << 1, 2,
+        3, 4,
+        5, 6;
+VectorXf vec(2);
+vec << 2, 3;
+
+mat = mat.array().rowwise() / vec.transpose().array();
+cout << mat << endl;
+```
