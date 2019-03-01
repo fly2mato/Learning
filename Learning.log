@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.5.11)  26 FEB 2019 17:20
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.5.11)  1 MAR 2019 17:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2732,7 +2732,7 @@ Overfull \hbox (3.22418pt too wide) detected at line 79
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 80
- \TU/ppl/m/n/12 56
+ \TU/ppl/m/n/12 55
  []
 
 
@@ -2747,7 +2747,7 @@ Overfull \hbox (3.22418pt too wide) detected at line 82
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 83
- \TU/ppl/m/n/12 57
+ \TU/ppl/m/n/12 56
  []
 
 
@@ -2757,7 +2757,7 @@ Overfull \hbox (3.22418pt too wide) detected at line 84
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 85
- \TU/ppl/m/n/12 58
+ \TU/ppl/m/n/12 57
  []
 
 
@@ -2772,12 +2772,12 @@ Overfull \hbox (3.22418pt too wide) detected at line 87
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 88
- \TU/ppl/m/n/12 59
+ \TU/ppl/m/n/12 58
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 89
- \TU/ppl/m/n/12 60
+ \TU/ppl/m/n/12 59
  []
 
 
@@ -2787,84 +2787,99 @@ Overfull \hbox (3.22418pt too wide) detected at line 90
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 91
- \TU/ppl/m/n/12 61
+ \TU/ppl/m/n/12 60
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 92
- \TU/ppl/m/n/12 61
+ \TU/ppl/m/n/12 60
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 93
- \TU/ppl/m/n/12 61
+ \TU/ppl/m/n/12 60
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 94
- \TU/ppl/m/n/12 62
+ \TU/ppl/m/n/12 61
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 95
- \TU/ppl/m/n/12 63
+ \TU/ppl/m/n/12 61
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 96
- \TU/ppl/m/n/12 63
+ \TU/ppl/m/n/12 61
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 97
- \TU/ppl/m/n/12 63
+ \TU/ppl/m/n/12 62
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 98
- \TU/ppl/m/n/12 64
- []
-
-
-Overfull \hbox (3.22418pt too wide) detected at line 99
- \TU/ppl/m/n/12 66
+ \TU/ppl/m/n/12 63
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
+Overfull \hbox (3.22418pt too wide) detected at line 99
+ \TU/ppl/m/n/12 63
+ []
+
+
 Overfull \hbox (3.22418pt too wide) detected at line 100
- \TU/ppl/m/n/12 66
+ \TU/ppl/m/n/12 63
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 101
- \TU/ppl/m/n/12 67
+ \TU/ppl/m/n/12 64
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 102
- \TU/ppl/m/n/12 67
+ \TU/ppl/m/n/12 66
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 103
- \TU/ppl/m/n/12 68
+ \TU/ppl/m/n/12 66
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 104
- \TU/ppl/m/n/12 69
+ \TU/ppl/m/n/12 67
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 105
- \TU/ppl/m/n/12 69
+ \TU/ppl/m/n/12 67
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 106
+ \TU/ppl/m/n/12 68
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 107
+ \TU/ppl/m/n/12 69
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 108
+ \TU/ppl/m/n/12 69
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 109
  \TU/ppl/m/n/12 69
  []
 
@@ -3158,7 +3173,7 @@ Underfull \vbox (badness 1024) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [55]
-LaTeX Font Info:    Try loading font information for U+fplmbb on input line 95.
+LaTeX Font Info:    Try loading font information for U+fplmbb on input line 97.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
@@ -3173,7 +3188,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [58]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [59]) [60]
+ [59] [60]) [61]
 \openout2 = `body/ReinforcementLearning.aux'.
 
  (./body/ReinforcementLearning.tex
@@ -3182,35 +3197,31 @@ File: figures/policy-iteration.png Graphic file (type bmp)
 <figures/policy-iteration.png>
 File: figures/value-iteration.png Graphic file (type bmp)
 <figures/value-iteration.png>
-[61
+[62
 
 
 
 ]
 File: figures/rl-algorithms.png Graphic file (type bmp)
 <figures/rl-algorithms.png>
- [62]
+ [63]
 File: figures/DQN.png Graphic file (type bmp)
 <figures/DQN.png>
- [63]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [64]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [65] [66]
+ [65]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [67]) [68]
+ [66] [67]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [68]) [69]
 \openout2 = `body/probability.aux'.
 
  (./body/probability.tex
 \CJKnumber {10} 10.
-) [69
-
-
-
-] [70
+) [70
 
 
 
@@ -3223,15 +3234,9 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 86.
  (./Learning.aux (./body/PX4.aux) (./body/ros.aux) (./body/python.aux) (./body/estimator.aux) (./body/path.aux) (./body/planning.aux) (./body/cpp.aux) (./body/MachineLearning.aux) (./body/ReinforcementLearning.aux) (./body/probability.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 86.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 86.
+Package rerunfilecheck Info: File `Learning.out' has not changed.
+(rerunfilecheck)             Checksum: 61498756A276CB05E05D1BF8E23D2716.
 
-
-Package rerunfilecheck Warning: File `Learning.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Learning.out':
-(rerunfilecheck)             Before: 91D88E9A763BCB3613B36D52F385ED4A
-(rerunfilecheck)             After:  5DA1AE29DA85E05167DD306372A636CD.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.45pt have occurred.
