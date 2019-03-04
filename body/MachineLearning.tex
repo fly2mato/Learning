@@ -79,8 +79,48 @@ error than $h$ over the entire distribution of instances.
 
 3. 标准化也是对各个特征进行缩放，但保持原联合分布,只是使得各特征之间能进行比较。
 
-\subsection{极大似然估计MLE与最大后验估计MAP}
-参考：https://zhuanlan.zhihu.com/p/32480810
+\subsection{\href{https://zhuanlan.zhihu.com/p/32480810}{最大似然估计MLE与最大后验估计MAP}}
+频率学派，Frequentist - Maximum Likelihood Estimation (MLE，最大似然估计)
+
+贝叶斯学派，Bayesian - Maximum A Posteriori (MAP，最大后验估计)
+
+二者对世界的认知的基本模型不同，如果用$\theta$表示建模的参数，那么解决问题的本质就是求解$\theta$。
+频率学派认为$\theta$是存在唯一不变的固定值，可以通过统计规律计算逼近; 
+贝叶斯学派认为$\theta$是一个随机变量，符合一定的概率分布，通过先验$P(\theta)$、似然$L(X;\theta)$，
+可以给出后验$P(\theta|X)$，其计算方法就是贝叶斯概率公式：
+\begin{equation*}
+    P(\theta|X) = \frac{P(X|\theta)P(\theta)}{P(X)} = \frac{L(X;\theta)P(\theta)}{P(X)}
+\end{equation*}
+先验相当于对$\theta$的初始猜测，随着样本的增加，后验分布将逐渐向样本的分布靠近，先验的作用逐渐减小。
+如果先验是均匀分布，那么后验计算的结果与频率学派的计算方法将一致。
+
+{\hei{$\blacksquare$ 最大似然估计，MLE}} 是频率学派常用的的估计方法。
+
+假设$X=[x_1, x_2, \cdots, x_n]$是独立同分布随机变量的一组抽样，那么有：
+\begin{align*}
+    \hat{\theta}_{MLE} &= \arg \max L(X;\theta) = \arg \max P(X|\theta) \\
+    &= \arg \max \prod_i P(x_i|\theta) \\
+    &= \arg \max \, \log \prod_i P(x_i|\theta) \\
+    &= \arg \min -\sum_i \log P(x_i|\theta)    
+\end{align*}
+
+{\hei{$\blacksquare$ 最大后验估计，MAP}}
+\begin{align*}
+    \hat{\theta}_{MAP} &= \arg \max P(\theta|X) = \arg\max \frac{P(X|\theta)P(\theta)}{P(X)} \\
+    &= \arg \max \left[\log P(X|\theta) + \log P(\theta) - \log P(X) \right] \\
+    &= \arg \min -\left[\log P(X|\theta) + \log P(\theta) - \log P(X) \right] \\
+    &= \arg \min -\sum_i \log P(x_i|\theta) -\log P(\theta)
+\end{align*}
+显然，最大后验估计就是在最大似然估计的基础上增加先验项。如果先验采用一个高斯分布：
+\begin{equation*}
+    P(\theta) = C \cdot e^{-\frac{\theta^2}{2\sigma^2}}
+\end{equation*}
+那么这个时候有：
+\begin{equation*}
+    - \log P(\theta) = C + \frac{\theta^2}{2\sigma^2}
+\end{equation*}
+也就是说，{\color{red}先验采用高斯分布的最大后验估计，相当于增加了L2正则的最大似然估计。}
+
 
 \subsection{交叉熵代价函数}
 {\hei{$\blacksquare$ 信息熵}}： 消除不确定性所需要的信息量的度量。
@@ -215,12 +255,12 @@ Sigmoid的输出可能是[0.4, 0.8]，它们相加不为1。
 而使用Softmax多分类，则输出结果表示每一个类别的可能性。
 
 \subsection{二分类逻辑回归求解}
-从极大似然估计推导。二分类逻辑回归模型可以统一表示为：
+从最大似然估计推导。二分类逻辑回归模型可以统一表示为：
 \begin{equation*}
     P(y|x;\theta) = (\sigma_\theta(x))^y \cdot (1-\sigma_\theta(x))^{(1-y)}
 \end{equation*}
 其中，$\sigma_\theta(x) = \sigma(\theta^T x)$。
-二分类逻辑回归就是在样本$X$上找到最大可能的概率分布$P(Y|X;\theta)$，显然是一个求解极大似然的问题。
+二分类逻辑回归就是在样本$X$上找到最大可能的概率分布$P(Y|X;\theta)$，显然是一个求解最大似然的问题。
 似然函数：
 \begin{align*}
     L(\theta) &= P(Y|X;\theta) = \prod_i P(y_i|x_i;\theta) 
@@ -244,14 +284,14 @@ Sigmoid的输出可能是[0.4, 0.8]，它们相加不为1。
 2. 为什么不用平方损失函数：梯度更新速度和 sigmod 函数的梯度相关，训练速度会非常慢且有梯度消失的可能。
 而且平方损失会导致损失函数是 theta 的非凸函数，不利于求解，因为非凸函数存在很多局部最优解。
 
-使用交叉熵代价（对数损失）函数的本质目的在于极大似然的原理。即使激活函数使用ReLU,仍然可以使用。
+使用交叉熵代价（对数损失）函数的本质目的在于最大似然的原理。即使激活函数使用ReLU,仍然可以使用。
 
 \subsection{softmax多分类求解}
 采用softmax的多分类逻辑回归模型可以统一表示为：
 \begin{equation*}
     P(y|x;\theta) = \sum_{i=1}^k \mathbb{1}\{ y_j=i \} \frac{e^{\theta_i^T x}}{\sum_k e^{\theta_k^T x}}
 \end{equation*}
-同样按照求解极大似然估计问题，取对数损失函数为：
+同样按照求解最大似然估计问题，取对数损失函数为：
 \begin{align*}
     L &= -\log P(Y|X;\theta) = -\sum_j P(y_j|x_j;\theta) \\
     &= -\sum_{j=1}^{m} \sum_{i=1}^k \mathbb{1}\{ y_j=i \} \log \left[\frac{e^{\theta_i^T x_j}}{\sum_k e^{\theta_k^T x_j}} \right] \\
@@ -304,23 +344,46 @@ SMO
 
 
 \subsection{L2正则逻辑回归与SVM的对比}
-逻辑回归的L2正则化，与最大后验估计推导
+如果逻辑回归采用最大后验估计进行推导，后验概率为：
+\begin{equation*}
+    P(X;\theta|Y) = \frac{P(Y|X;\theta)P(X;\theta)}{P(Y)}
+\end{equation*}
+取负对数作为损失函数, 并假设参数先验符合高斯分布，可得：
+\begin{align*}
+    L &= -\log P(X;\theta|Y) = -log P(Y|X;\theta) - \log P(X;\theta) + \log P(Y) \\
+    &= -\sum_i log P(y_i|x_i;\theta) - \log C\cdot e^{-\frac{\theta^T\theta}{2\sigma^2}} + \log P(Y) \\
+    &= -\sum_i log P(y_i|x_i;\theta) + \frac{\theta^T\theta}{2\sigma^2} + Const
+\end{align*}
+显然，采用高斯先验的最大后验估计推导出的逻辑回归，相当于在最大似然估计逻辑回归上增加了L2正则项。
 
-Regulization
-上面提到了，结构风险函数包括了经验风险项和正则项，加入正则项相当于对参数加入了一个先验分布，常用的有L1和L2正则，L1，L2正则化项对模型的参数向量进行“惩罚”，从而避免单纯最小二乘问题的过拟合问题。正则化项本质上是一种先验信息，整个最优化问题从贝叶斯观点来看是一种贝叶斯最大后验估计，其中正则化项对应后验估计中的先验信息，损失函数对应后验估计中的似然函数，两者的乘积即对应贝叶斯最大后验估计的形式，如果将这个贝叶斯最大后验估计的形式取对数，即进行极大似然估计，你就会发现问题立马变成了损失函数+正则化项的最优化问题形式。
-在逻辑回归求解中，如果对样本加上一个先验的服从高斯分布的假设，那么就取log后，式子经过化简后就变成在经验风险项后面加上一个正则项，此时损失函数变为。
-参考https://ngunauj.github.io/2017/08/23/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/
+在进一步，如果这里$y_i \in \pm 1$，那么有：
+\begin{align*}
+    P(y_i=1 |x_i;\theta) &= \frac{1}{1+e^{\theta^T x_i}} \\
+    P(y_i=-1|x_i;\theta) &= \frac{e^{\theta^T x_i}}{1+e^{\theta^T x_i}} = \frac{1}{1+e^{-\theta^T x_i}}\\
+\end{align*}
+可以统一表示为：
+\begin{equation*}
+    P(y_i|x_i;\theta) = \sigma_\theta(y_i(\theta^T x_i))
+\end{equation*}
+带入上面的逻辑回归损失函数中，并忽略常数项：
+\begin{equation*}
+    L_{LR} = \sum_i \log [1+\exp(y_i(\theta^T x_i))] + \lambda \theta^T\theta
+\end{equation*}
+\begin{equation*}
+    L_{SVM} = \sum \left[1 - y_i(\theta^T x_i)\right]^+ + \lambda \theta^T\theta
+\end{equation*}
+所以如果令$z = y_i(\theta^T x_i)$，那么L2正则的LR与SVM可以统一为：
+\begin{align*}
+    & L = \sum Loss(z) + \lambda \theta^T\theta \\
+    & SVM: Loss(z) = (1-z)^+ \\
+    & LR: Loss(z) = \log (1+\exp(-z))
+\end{align*}
 
-
-参考:https://www.zhihu.com/question/24904422
-
-注意这里逻辑回归中标签值与SVM一样，都是$\pm 1$
-
-todo
-
+todo 补图
 
 \section{决策树}
-《统计学习方法》上介绍的决策树有ID3（C4.5）、CART两种。
+决策树分为分类树和回归树。《统计学习方法》上介绍的决策树有ID3（C4.5）、CART两种。
+ID3（C4.5）是分类树; CART可以作为分类树，也可以作为回归树。
 决策树学习算法包括三个部分：特征选择、树的生成、树的减枝。
 \subsection{特征选择}
 ID3使用信息增益来选择特征。
@@ -333,4 +396,22 @@ C4.5使用信息增益比来选择特征：
     g_R(D,A) = \frac{g(D,A)}{H_A(D)}
 \end{equation*}
 
-CART使用Gini系数来选择特征及对应取值。CART按照取值是/否生成二叉决策树
+CART分类树使用Gini系数来选择特征及对应取值。CART按照取值是/否生成二叉分类树
+\begin{equation*}
+    Gini(D,A) = \frac{|D_1|}{|D|}Gini(D_1) + \frac{|D_2|}{|D|}Gini(D_2)
+\end{equation*}
+CART回归树则使用平方误差来计算损失函数
+\begin{equation*}
+    L(f,s) = \sum_{s_1} (y_i - c_1)^2 + \sum_{s_2} (y_i - c_2)^2
+\end{equation*}
+其中$c_1 = E(y_i|x_i \in s_1)$，$c_2 = E(y_i|x_i \in s_2)$
+
+\subsection{树的生成}
+1. 遍历所有可行特征，遍历特征的可行取值
+
+2. 分类树按照样本对应特征是/否为该值进行样本划分，回归树按照特征大于等于/小于该值进行样本划分
+
+3. 计算划分后的损失函数/样本纯度等，按照评价标准选取(最优特征、取值)作为划分，生成一个节点。迭代。
+
+4. 叶子节点的取值，分类树取为当前节点上样本最多的类别;回归树取为当前节点上所有样本的均值。
+
