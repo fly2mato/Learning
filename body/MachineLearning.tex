@@ -317,3 +317,20 @@ Regulization
 注意这里逻辑回归中标签值与SVM一样，都是$\pm 1$
 
 todo
+
+
+\section{决策树}
+《统计学习方法》上介绍的决策树有ID3（C4.5）、CART两种。
+决策树学习算法包括三个部分：特征选择、树的生成、树的减枝。
+\subsection{特征选择}
+ID3使用信息增益来选择特征。
+\begin{equation*}
+    g(D,A) = H(D) - H(D|A)
+\end{equation*}
+
+C4.5使用信息增益比来选择特征：
+\begin{equation*}
+    g_R(D,A) = \frac{g(D,A)}{H_A(D)}
+\end{equation*}
+
+CART使用Gini系数来选择特征及对应取值。CART按照取值是/否生成二叉决策树

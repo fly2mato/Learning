@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.5.11)  1 MAR 2019 17:40
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.5.11)  4 MAR 2019 19:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2812,7 +2812,7 @@ Overfull \hbox (3.22418pt too wide) detected at line 95
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 96
- \TU/ppl/m/n/12 61
+ \TU/ppl/m/n/12 62
  []
 
 
@@ -2822,7 +2822,7 @@ Overfull \hbox (3.22418pt too wide) detected at line 97
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 98
- \TU/ppl/m/n/12 63
+ \TU/ppl/m/n/12 62
  []
 
 
@@ -2835,7 +2835,7 @@ Overfull \hbox (3.22418pt too wide) detected at line 99
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 100
- \TU/ppl/m/n/12 63
+ \TU/ppl/m/n/12 64
  []
 
 
@@ -2845,12 +2845,12 @@ Overfull \hbox (3.22418pt too wide) detected at line 101
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 102
- \TU/ppl/m/n/12 66
+ \TU/ppl/m/n/12 64
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 103
- \TU/ppl/m/n/12 66
+ \TU/ppl/m/n/12 65
  []
 
 
@@ -2870,7 +2870,7 @@ Overfull \hbox (3.22418pt too wide) detected at line 106
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 107
- \TU/ppl/m/n/12 69
+ \TU/ppl/m/n/12 68
  []
 
 
@@ -2880,7 +2880,17 @@ Overfull \hbox (3.22418pt too wide) detected at line 108
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 109
- \TU/ppl/m/n/12 69
+ \TU/ppl/m/n/12 70
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 110
+ \TU/ppl/m/n/12 70
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 111
+ \TU/ppl/m/n/12 70
  []
 
 )
@@ -3235,7 +3245,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 86.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 86.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 86.
 Package rerunfilecheck Info: File `Learning.out' has not changed.
-(rerunfilecheck)             Checksum: 61498756A276CB05E05D1BF8E23D2716.
+(rerunfilecheck)             Checksum: ADE5C8BD5C3CEA5CE8A9ADB8586D841F.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -3250,10 +3260,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 86.
  ) 
 Here is how much of TeX's memory you used:
- 43316 strings out of 492970
- 842771 string characters out of 6133938
- 1109146 words of memory out of 5000000
- 46432 multiletter control sequences out of 15000+600000
+ 43317 strings out of 492970
+ 842784 string characters out of 6133938
+ 1109149 words of memory out of 5000000
+ 46433 multiletter control sequences out of 15000+600000
  575313 words of font info for 201 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  57i,14n,93p,10474b,2230s stack positions out of 5000i,500n,10000p,200000b,80000s

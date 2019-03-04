@@ -112,3 +112,14 @@ vec << 2, 3;
 mat = mat.array().rowwise() / vec.transpose().array();
 cout << mat << endl;
 ```
+
+
+**字典中找最值**
+
+dogdistance = {'dog-dog': 33, 'dog-cat': 36, 'dog-car': 41, 'dog-bird': 42}
+
+返回最小值的键值：
+min(dogdistance, key=dogdistance.get)
+
+返回最大值的键值:
+max(dogdistance, key=dogdistance.get)
