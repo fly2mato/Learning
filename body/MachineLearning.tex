@@ -102,7 +102,7 @@ error than $h$ over the entire distribution of instances.
 %     &= \frac{1}{N^2} N Var(M_i) = \frac{1}{N} Var(M_i) 
 % \end{align*}
 
-
+\href{https://www.zhihu.com/question/41047671}{比较特殊的是Adaboost，除了能减少偏差，也能降低方差}
 \subsection{归一化与标准化}
 待确定
 
@@ -214,6 +214,11 @@ $D_{KL}(p||q) \neq D_{KL}(q||p)$}
 $\alpha_k = \arg \min f(x^{(k)} - \alpha g_k)$
 
 \subsection{线性回归}
+\href{http://sofasofa.io/forum_main_post.php?postid=1002489}{线性回归的推导}
+
+\href{http://sofasofa.io/forum_main_post.php?postid=1000313}{线性回归的前提假设}
+
+
 假设共$m$个样本点，每个样本具有$n$维特征，则定义$X \in R^{m \times (n+1)}$，$Y \in R^{m\times 1}$，
 $\theta \in R^{(n+1)\times 1}$，其中$X$包含了常值特征，$\theta$包含了偏置系数。
 \begin{align*}
@@ -377,8 +382,26 @@ SMO
 \subsection{一些问题}
 1. 软间隔SVM中，三种样本点（支持向量样本、远端样本、间隔内样本）如何由$C$和$\alpha_i$确定？
 
+参考《统计学习方法》p113 7.2.3
+\begin{enumerate}
+\item 若$\alpha_i^* < C$，则$\xi_i = 0$，$x_i$处在间隔边界上
+\item 若$\alpha_i^* = C$，且$0 < \xi_i < 1$，$x_i$处在间隔边界和分离超平面之间，正确分类一侧
+\item 若$\alpha_i^* = C$，且$\xi_i = 1$，$x_i$处在分离超平面上
+\item 若$\alpha_i^* = C$，且$\xi_i > 1$，$x_i$处在间隔边界和分离超平面之间，错误分类的一侧
+\end{enumerate}
+
+
+
+
+2. LR与SVM的对比
+
+3. SVM为什么要去求解对偶问题。\href{https://shomy.top/2017/02/17/svm-02-dual/}{参考这里}
+
 
 \subsection{L2正则逻辑回归与SVM的对比}
+这里的一些符号表示还是有些问题，可以
+\href{http://weirping.coding.me/blog/Bayesian-Probabilities-in-ML.html}{参考这里}
+
 如果逻辑回归采用最大后验估计进行推导，后验概率为：
 \begin{equation*}
     P(X;\theta|Y) = \frac{P(Y|X;\theta)P(X;\theta)}{P(Y)}
@@ -426,6 +449,7 @@ ID3使用信息增益来选择特征。
 \begin{equation*}
     g(D,A) = H(D) - H(D|A)
 \end{equation*}
+$H(D|A)$表示条件熵，$H(D|A) = \sum_i p(A=a_i) H(D|A=a_i) = \sum_i p(A=a_i) \sum_j p(D=d_j|A=a_i) \log p(D=d_j|A=a_i)$
 
 C4.5使用信息增益比来选择特征：
 \begin{equation*}
@@ -475,4 +499,59 @@ CART回归树则使用平方误差来计算损失函数
 
 2. 缺失值处理：增加权重考虑，在计算信息增益、基尼系数的时候带入权重项（用权值替换个数）;
 以无缺失的样本进行树的分裂，同时将有缺失的样本同时归入每个叶子中，并修改在每个叶子中的权重。
+
+
+\section{集成算法}
+\subsection{Bagging}
+随机森林
+\subsection{Boosting}
+boosting tree
+
+Adabosot
+\href{http://sofasofa.io/forum_main_post.php?postid=1003214}{Adaboost也可以用于回归}
+
+GBDT
+
+xgboost
+
+\subsection{Stacking}
+
+
+\section{无人机异常检测}
+数据来源为传感器原始数据：加速度计，陀螺仪，磁力计，GPS位置速度，电流、电压;共计15个状态变量
+
+\subsection{基于规则的异常检测}
+\noindent 1.（运营飞机）通过收集、积累正常飞行的log数据，对固定航线飞行过程中的各个状态变量的变化范围进行标记（分段统计均值、方差等）
+
+\noindent 2. 制定相应的异常标准（偏差、方差范围） 
+
+\subsection{基于多分类SVM的监督学习方法}
+\noindent 1. (编队飞机) 收集、积累正常编队飞行的log数据，用于生成负样本。包含不同加减速过程、不同飞行轨迹过程 \\
+\noindent 2. 预设电机停转、输出异常、螺旋桨损伤等异常情况，积累飞行数据，用于生成正样本。 \\
+\noindent 2+. 按10+10-,5分钟有效飞行时间，300ms划分，共计40000个样本点 \\
+\noindent 3. 采用FFT变换的方式，对每一个时间窗口（使用汉宁窗口划分，$1 - \cos t$）进行一次变换，重叠率为0.5
+窗口长度从200ms到500ms进行对比分析 \\
+\noindent 4. 特征为各个状态变量的频率分量，从0到10Hz（5段）、50Hz（10段）、250Hz（25段）进行划分，合计210维特征 \\
+\noindent 5. 采用分层分类的思想，第一个SVM区分正常与异常， 第二个SVM区分异常程度（电机失效等剧烈异常、螺旋桨损伤等轻微异常） \\
+\noindent 6. 采用高斯核函数，10fold验证,gamma=0.3 \\
+\noindent 7. 准确度0.85, 漏警0.05,虚警0.1
+
+\section{推荐算法}
+\subsection{协同过滤}
+\begin{enumerate}
+\item UserCF，基于用户相似的协同过滤。首先建立用户的相似度，将相似用户喜好的物品推荐出来。
+\item ItemCF，基于物品相似的协同过滤。首先建立物品的相似度，根据用户的喜好历史，将相似的物品推荐出来。
+\end{enumerate}
+从原理看出，UserCF偏向于推荐在一个兴趣群体里的热门物品，而ItemCF推荐则更符合个性化定制的情况。
+
+一般用户的兴趣偏好比较稳定，而物品的变化则可能比较剧烈，比如常有新物品的出现等情况。
+\begin{figure}[htbp]
+	\figskip
+	\centering
+	\includegraphics[width = 0.9\textwidth,trim = 0 -0 0 -0,clip]{UserCFandItemCF.png}	  
+	\caption{\label{fig: UserCFandItemCF} UserCF 与 ItemCF的对比}
+\end{figure} 
+
+协同过滤方法本质还是一种kNN的算法，只不过距离函数采用用户/物品相似度进行度量。
+
 

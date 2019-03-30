@@ -1,7 +1,23 @@
-\chapter{一些有趣的概率问题}
-\section{三门问题}
+\chapter{概率、统计}
+\section{基础知识}
+\href{https://paul.pub/common-probability-distributions/#id-%E6%A6%82%E7%8E%87%E8%B4%A8%E9%87%8F%E5%87%BD%E6%95%B0}{常见概率分布}
 
-\section{吸收马尔可夫过程}
+1. \href{https://blog.csdn.net/saltriver/article/details/53982885}{possion分布与指数分布}
+
+2. \href{https://zhuanlan.zhihu.com/p/26433704}{possion分布与二项分布}
+
+\section{一些有趣的概率问题}
+\subsection{三门问题}
+
+\subsection{吸收马尔可夫过程}
 先参考\href{http://www.dartmouth.edu/~chance/teaching_aids/books_articles/probability_book/Chapter11.pdf}
-{\texttt{这篇文献}}的11.2节。
+{\texttt{这篇文献}}的11.2节
+
+\section{蓄水池抽样方法}
+在连续的数据流中，等概率的均匀抽样出k个样本。
+\begin{enumerate}
+\item 先保留前k个样本
+\item 从第j=k+1个样本开始，对每一个新样本，以p=k/j的概率将其保留，
+同时随机替换原k个样本中的某一个。
+\end{enumerate}
 

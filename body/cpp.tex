@@ -86,12 +86,34 @@ void countsort(vector<int> &nums, int start, int end){
 
 
 \section{语言使用}
+\subsection{某量声明与定义}
+\begin{enumerate}
+\item 声明规定了变量的类型和名字，需要使用extern关键字，且没有显式地初始化变量
+\item 定义除了声明的作用外，还申请了存储空间，也可能会给变量赋予初始值
+\end{enumerate}
+
+\subsection{指针与引用}
+表现出的本质区别：指针是一个对象，而引用不是对象，只是某个已存在对象的别名。
+\begin{enumerate}
+\item 定义引用的时候，必需初始化引用的对象。这时引用将会绑定到该对象。而指针可以指向空地址、野值。
+\item 引用无法解绑定，也无法变更绑定的对象。指针能多次赋值、更换指向的对象。
+\item 解指针操作后，得到指向的对象;而引用本身就是引用的对象。
+\item sizeof引用得到的是所指向对象的大小，而sizeof指针是得到指针本身。（这里有数组指针的问题）
+\item 指针和引用的自增自减运算意义不一样。
+\end{enumerate}
+
+但如果将引用视为一个自动包含解指针操作的指针常量，那么指针与引用就没有本质区别了。
+\href{https://www.marvinle.cn/2018/12/10/pointer-reference/}{参考这里}：
+引用只是c++语法糖，可以看作编译器自动完成取地址、解引用的常量指针
+
 \subsection{参数缺省}
 1. 只在声明中表明参数的缺省值
 
 2. 从右向左增加缺省值
 
 3. 使用时从左向右传入参数，无缺省值的参数必需指定实参。
+
+
 
 \subsection{const 关键字的使用}
 \href{https://blog.csdn.net/lf1570180470/article/details/56677748}{参考1}
