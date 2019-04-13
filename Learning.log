@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.5.11)  30 MAR 2019 18:02
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.5.11)  10 APR 2019 15:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2273,8 +2273,8 @@ LaTeX Info: Redefining \Ref on input line 28.
 . - 'bold small caps'  (bx/sc) with NFSS spec.: 
 .................................................
  (./Learning.toc
-Overfull \hbox (4.5082pt too wide) detected at line 1
- \TU/ppl/m/n/12 IV
+Overfull \hbox (0.27219pt too wide) detected at line 1
+ \TU/ppl/m/n/12 V
  []
 
 
@@ -2747,12 +2747,12 @@ Overfull \hbox (3.22418pt too wide) detected at line 82
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 83
- \TU/ppl/m/n/12 58
+ \TU/ppl/m/n/12 57
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 84
- \TU/ppl/m/n/12 59
+ \TU/ppl/m/n/12 58
  []
 
 
@@ -2772,7 +2772,7 @@ Overfull \hbox (3.22418pt too wide) detected at line 87
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 88
- \TU/ppl/m/n/12 60
+ \TU/ppl/m/n/12 59
  []
 
 
@@ -2782,7 +2782,7 @@ Overfull \hbox (3.22418pt too wide) detected at line 89
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 90
- \TU/ppl/m/n/12 61
+ \TU/ppl/m/n/12 60
  []
 
 
@@ -2792,7 +2792,7 @@ Overfull \hbox (3.22418pt too wide) detected at line 91
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 92
- \TU/ppl/m/n/12 62
+ \TU/ppl/m/n/12 61
  []
 
 
@@ -2822,18 +2822,18 @@ Overfull \hbox (3.22418pt too wide) detected at line 97
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 98
- \TU/ppl/m/n/12 64
- []
-
-
-Overfull \hbox (3.22418pt too wide) detected at line 99
- \TU/ppl/m/n/12 64
+ \TU/ppl/m/n/12 63
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
+Overfull \hbox (3.22418pt too wide) detected at line 99
+ \TU/ppl/m/n/12 64
+ []
+
+
 Overfull \hbox (3.22418pt too wide) detected at line 100
  \TU/ppl/m/n/12 65
  []
@@ -2865,32 +2865,32 @@ Overfull \hbox (3.22418pt too wide) detected at line 105
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 106
- \TU/ppl/m/n/12 66
+ \TU/ppl/m/n/12 68
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 107
- \TU/ppl/m/n/12 66
+ \TU/ppl/m/n/12 68
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 108
- \TU/ppl/m/n/12 66
+ \TU/ppl/m/n/12 68
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 109
- \TU/ppl/m/n/12 66
+ \TU/ppl/m/n/12 68
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 110
- \TU/ppl/m/n/12 67
+ \TU/ppl/m/n/12 68
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 111
- \TU/ppl/m/n/12 67
+ \TU/ppl/m/n/12 68
  []
 
 
@@ -2900,12 +2900,12 @@ Overfull \hbox (3.22418pt too wide) detected at line 112
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 113
- \TU/ppl/m/n/12 68
+ \TU/ppl/m/n/12 69
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 114
- \TU/ppl/m/n/12 68
+ \TU/ppl/m/n/12 69
  []
 
 
@@ -2915,17 +2915,17 @@ Overfull \hbox (3.22418pt too wide) detected at line 115
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 116
- \TU/ppl/m/n/12 70
+ \TU/ppl/m/n/12 69
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 117
- \TU/ppl/m/n/12 70
+ \TU/ppl/m/n/12 69
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 118
- \TU/ppl/m/n/12 70
+ \TU/ppl/m/n/12 71
  []
 
 
@@ -2935,32 +2935,32 @@ Overfull \hbox (3.22418pt too wide) detected at line 119
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 120
- \TU/ppl/m/n/12 73
+ \TU/ppl/m/n/12 71
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 121
- \TU/ppl/m/n/12 73
+ \TU/ppl/m/n/12 72
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 122
- \TU/ppl/m/n/12 74
+ \TU/ppl/m/n/12 73
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 123
- \TU/ppl/m/n/12 74
+ \TU/ppl/m/n/12 73
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 124
- \TU/ppl/m/n/12 75
+ \TU/ppl/m/n/12 73
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 125
- \TU/ppl/m/n/12 76
+ \TU/ppl/m/n/12 74
  []
 
 
@@ -2975,17 +2975,50 @@ Overfull \hbox (3.22418pt too wide) detected at line 127
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 128
- \TU/ppl/m/n/12 76
+ \TU/ppl/m/n/12 77
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 129
- \TU/ppl/m/n/12 76
+ \TU/ppl/m/n/12 77
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 130
- \TU/ppl/m/n/12 76
+ \TU/ppl/m/n/12 78
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 131
+ \TU/ppl/m/n/12 79
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 132
+ \TU/ppl/m/n/12 79
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
+Overfull \hbox (3.22418pt too wide) detected at line 133
+ \TU/ppl/m/n/12 79
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 134
+ \TU/ppl/m/n/12 79
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 135
+ \TU/ppl/m/n/12 79
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 136
+ \TU/ppl/m/n/12 79
  []
 
 )
@@ -2998,7 +3031,9 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.0pt
 (hyperref)                replaced by space on input line 44.
 
-[4]
+[5] [6
+
+]
 \openout2 = `body/PX4.aux'.
 
  (./body/PX4.tex
@@ -3010,7 +3045,6 @@ File: lstlang2.sty 2015/06/04 1.6 listings language file
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 ) [1
-
 
 
 
@@ -3278,7 +3312,7 @@ Underfull \vbox (badness 1024) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [57]
-LaTeX Font Info:    Try loading font information for U+fplmbb on input line 170.
+LaTeX Font Info:    Try loading font information for U+fplmbb on input line 178.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
@@ -3293,19 +3327,28 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [60]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [61] [62] [63]
+ [61]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [62] [63]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [64]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [65]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2237) has occurred while \output is active []
 
  [66]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [67]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [68]
 File: figures/UserCFandItemCF.png Graphic file (type bmp)
 <figures/UserCFandItemCF.png>
-) [67]
+) [69] [70]
 \openout2 = `body/ReinforcementLearning.aux'.
 
  (./body/ReinforcementLearning.tex
@@ -3314,31 +3357,35 @@ File: figures/policy-iteration.png Graphic file (type bmp)
 <figures/policy-iteration.png>
 File: figures/value-iteration.png Graphic file (type bmp)
 <figures/value-iteration.png>
-[68
+[71
 
 
 
 ]
 File: figures/rl-algorithms.png Graphic file (type bmp)
 <figures/rl-algorithms.png>
- [69]
+ [72]
 File: figures/DQN.png Graphic file (type bmp)
 <figures/DQN.png>
- [70]
+ [73]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [71]
+ [74]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [72] [73]
+ [75] [76]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [74]) [75]
+ [77]) [78]
 \openout2 = `body/probability.aux'.
 
  (./body/probability.tex
 \CJKnumber {10} 10.
-) [76
+) [79
+
+
+
+] [80
 
 
 
@@ -3352,7 +3399,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 86.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 86.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 86.
 Package rerunfilecheck Info: File `Learning.out' has not changed.
-(rerunfilecheck)             Checksum: 42567C0E18340EDA3D170E6E7548B373.
+(rerunfilecheck)             Checksum: 35CE5CA662EF1BA6EA7E0A2A3A1E1B29.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -3367,12 +3414,12 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 86.
  ) 
 Here is how much of TeX's memory you used:
- 43372 strings out of 492970
- 846132 string characters out of 6133938
- 1109194 words of memory out of 5000000
- 46487 multiletter control sequences out of 15000+600000
+ 43384 strings out of 492970
+ 846836 string characters out of 6133938
+ 1109202 words of memory out of 5000000
+ 46499 multiletter control sequences out of 15000+600000
  575313 words of font info for 201 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  57i,14n,93p,10474b,2230s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Learning.pdf (80 pages).
+Output written on Learning.pdf (86 pages).

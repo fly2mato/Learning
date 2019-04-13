@@ -103,6 +103,14 @@ error than $h$ over the entire distribution of instances.
 % \end{align*}
 
 \href{https://www.zhihu.com/question/41047671}{比较特殊的是Adaboost，除了能减少偏差，也能降低方差}
+
+\subsection{连续值特征离散化}
+1. 按照区间分割、长尾合并等
+
+2. $\chi^2$检测
+
+3. 信息增益，类似决策树。另：采用GBDT/RF等的结果作为编码，是不是也是处于这种思路？
+
 \subsection{归一化与标准化}
 待确定
 
@@ -397,6 +405,8 @@ SMO
 
 3. SVM为什么要去求解对偶问题。\href{https://shomy.top/2017/02/17/svm-02-dual/}{参考这里}
 
+4. 样本不平衡对SVM的影响：SVM算法本身对样本不平衡的情况不敏感，除非不平衡的样本点发生在决策边界附近;
+使用软化SVM的时候，缺失间隔边界内部的样本也不产生分离超平面偏移的情况。
 
 \subsection{L2正则逻辑回归与SVM的对比}
 这里的一些符号表示还是有些问题，可以
@@ -501,6 +511,100 @@ CART回归树则使用平方误差来计算损失函数
 以无缺失的样本进行树的分裂，同时将有缺失的样本同时归入每个叶子中，并修改在每个叶子中的权重。
 
 
+\section{EM算法}
+按照《统计学习方法》的推导：记观测变量数据为$Y$，隐变量数据为$Z$，模型参数为$\theta$。
+若要对$\theta$做最大似然估计，那么应该最大化对数似然函数：
+\begin{equation*}
+    LL(\theta|Y,Z) = \log P(Y,Z; \theta)
+\end{equation*}
+由于$Z$无法观测得到，所以可以采用对$Z$求期望的方式，来最大化对数边际似然函数。
+% \begin{equation*}
+%     LL(\theta|Y) = \log \sum_Z P(Y,Z|theta)
+% \end{equation*}
+进一步，如果对$Z$并不是求期望值，而是求$Z$的概率分布$P(Z|Y; \theta^{(t)})$，那么EM算法可以分为两步
+\begin{enumerate}
+\item E步(Expectation): 计算对数似然函数关于$Z$的期望值函数，称为Q函数：
+\begin{equation*}
+    Q(\theta;\theta^{(t)}) = \mathbb{E}_{Z|Y; \theta^{(t)}} \log P(Y,Z;\theta)
+    = \sum_Z [P(Z|Y; \theta^{(t)}) \log P(Y,Z; \theta)]
+\end{equation*}
+\item M步(Maximization): 最大化Q函数：
+\begin{equation*}
+    \theta^{(t+1)} = \arg \max_\theta Q(\theta|\theta^{(t)})
+\end{equation*}
+\end{enumerate}
+
+EM算法本质的推导、Ng使用的目标函数，可以\href{https://zhuanlan.zhihu.com/p/57679630}{参考这里}。
+
+\subsection{三硬币问题}
+3硬币A，B，C，正面(定义为1)出现的概率分别为$\pi$, $p$, $q$。每次实验：先抛A，正面则使用B，否则使用C，观察B/C的结果。然后重复10次实验。
+观测结果$Y=[1,1,0,1,0,0,1,0,1,1]$。那么隐变量$z_i \in {0, 1}$就是每次实验中抛硬币A的结果。
+试估计模型参数$\theta = [\pi, p, q]$。
+
+\begin{align*}
+    \log P(Y,Z; \theta) &= \log \prod_i P(y_i, z_i; \theta) = \sum_i \log P(y_i, z_i; \theta) \\
+    &= \sum_i \log [ P(y_i|z_i; \theta) P(z_i; \theta) ]
+\end{align*}
+代入二项分布的概率分布可得
+\begin{equation*}
+\log [ P(y_i|z_i; \theta) P(z_i; \theta) ] = \left\{
+    \begin{aligned}
+        & \log[\pi p^{y_i}(1-p)^{(1-y_i)}] , & z_i =1 \\
+        & \log[(1-\pi)q^{y_i}(1-q)^{(1-y_i)}), & z_i =0
+    \end{aligned}
+    \right.
+\end{equation*}
+
+当已知$Y$和$\theta^{(t)}$时，$P(Z|Y; \theta^{(t)})$表示$Z$的条件概率分布，
+可以统一表示为：
+\begin{equation*}
+    P(Z|Y; \theta^{(t)}) = \prod_i P(z_i|y_i; \theta^{(t)})
+    % = \prod_i \frac{ P(y_i|z_i;\theta^{(t)}) P(z_i;\theta^{(t)})}{\sum_{z_i} P(y_i,z_i;\theta^{(t)})}
+\end{equation*}
+此时可以计算Q函数为：
+\begin{align*}
+    Q(\theta; \theta^{(t)}) &= \mathbb{E}_{Z|Y; \theta^{(t)}} \sum_i \log P(y_i,z_i;\theta) \\
+    &= \sum_Z \left[ \sum_i \log P(y_i,z_i;\theta) \right] \prod_j P(z_j|y_j; \theta^{(t)}) \\
+    &= \sum_{z_1} \sum_{z_2} \cdots \sum_{z_n} \left[ \sum_i \log P(y_i,z_i;\theta) \right] \prod_j P(z_j|y_j; \theta^{(t)}) \\
+    &= \sum_i \sum_{z_1} \sum_{z_2} \left[ \prod_j P(z_j|y_j; \theta^{(t)}) \log P(y_i,z_i;\theta) \right] \\
+    &= \sum_i \sum_{z_i} \left[P(z_i|y_i; \theta^{(t)}) \log P(y_i,z_i;\theta) \right]
+\end{align*}
+在最后一步的推导过程中，关于$j$的概率连乘项通过前面的累加，只会保留下$j=i$的那一项。
+类似于$\mathbb{E}_{X}[x_1+x_2+x_3] = \mathbb{E}_{X} x_1 + \mathbb{E}_{X} x_2 + \mathbb{E}_{X} x_3$。
+所以其实也可以从第一步得到最后一步的结果。
+
+{\hei{$\blacksquare$ E步:}} 
+在第$i$次实验中，$P(z_i|y_i;\theta^{(t)})$可以通过贝叶斯公式计算：
+\begin{equation*}
+    P(z_i|y_i;\theta^{(t)}) = \frac{P(y_i|z_i;\theta^{(t)}) P(z_i; \theta^{(t)})}{\sum_{z_i}P(y_i, z_i; \theta^{(t)})} = 
+    \left\{
+        \begin{aligned}
+            & \frac{\pi^{(t)} (p^{(t)})^{y_i} (1-p^{(t)})^{1-y_i}}{\sum_{z_i}P(y_i, z_i; \theta^{(t)})}, & z_i = 1\\
+            & \frac{(1-\pi^{(t)})(q^{(t)})^{y_i} (1-q^{(t)})^{1-y_i}}{\sum_{z_i}P(y_i, z_i; \theta^{(t)})}, & z_i = 0\\
+        \end{aligned}
+    \right.
+\end{equation*}
+记$\mu_i^{(t)} = P(z_i=1|y_i;\theta^{(t)})$，那么Q函数为：
+\begin{equation*}
+    Q(\theta; \theta^{(t)}) = \sum_i \mu_i^{(t)}\log[\pi p^{y_i}(1-p)^{(1-y_i)}]
+    + (1-\mu_i^{(t)}) \log[(1-\pi)q^{y_i}(1-q)^{(1-y_i)})
+\end{equation*}
+
+{\hei{$\blacksquare$ M步:}} 对Q函数求极大：
+\begin{align*}
+    \Q{Q(\theta; \theta^{(t)})}{\pi} &= \sum_i \frac{\mu_i^{(t)} - \pi}{\pi(1-\pi)} = 0 \\
+    \Q{Q(\theta; \theta^{(t)})}{p} &= \sum_i \mu_i^{(t)} \frac{y_i - p}{p(1-p)} = 0 \\
+    \Q{Q(\theta; \theta^{(t)})}{q} &= \sum_i (1-\mu_i^{(t)}) \frac{y_i - q}{q(1-q)} = 0
+\end{align*}
+解得$\theta^{(t+1)} = [\pi^{(t+1)}, p^{(t+1)}, q^{(t+1)}]$的更新值为：
+\begin{align*}
+    \pi^{(t+1)} &= \frac 1 n \sum_i \mu_i^{(t)} \\
+    p^{(t+1)} &= \frac{\sum_i \mu_i^{(t)} y_i}{\sum_i \mu_i^{(t)}}  \\
+    q^{(t+1)} &= \frac{\sum_i (1-\mu_i^{(t)}) y_i}{\sum_i (1-\mu_i^{(t)})}
+\end{align*}
+
+
+
 \section{集成算法}
 \subsection{Bagging}
 随机森林
@@ -535,6 +639,27 @@ xgboost
 \noindent 5. 采用分层分类的思想，第一个SVM区分正常与异常， 第二个SVM区分异常程度（电机失效等剧烈异常、螺旋桨损伤等轻微异常） \\
 \noindent 6. 采用高斯核函数，10fold验证,gamma=0.3 \\
 \noindent 7. 准确度0.85, 漏警0.05,虚警0.1
+
+\section{降维}
+\subsection{PCA}
+\href{http://blog.codinglabs.org/articles/pca-tutorial.html}{PCA}
+
+
+\section{半监督学习}
+问题的出发点是只有小部分的样本点有标签，而大量的样本只有采样而没有标签。
+
+主动学习：要求存在专家系统。首先基于有监督学习设计基学习器，然后在无标签样本中找到对模型改进最大的样本点，查询专家系统得到标签。然后逐步迭代。
+
+半监督学习：不依赖外部交互，利用了样本数据的分布信息，自动地提升学习性能。本质假设相似的样本具有相似的输出。
+
+1. 生成式方法：采用EM，类似混合高斯聚类
+
+2. 半监督SVM
+
+3. 图半监督学习
+
+4. 基于分歧的方法。协同训练的方法。
+
 
 \section{推荐算法}
 \subsection{协同过滤}
