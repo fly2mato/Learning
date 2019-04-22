@@ -566,7 +566,7 @@ EM算法本质的推导、Ng使用的目标函数，可以\href{https://zhuanlan
     Q(\theta; \theta^{(t)}) &= \mathbb{E}_{Z|Y; \theta^{(t)}} \sum_i \log P(y_i,z_i;\theta) \\
     &= \sum_Z \left[ \sum_i \log P(y_i,z_i;\theta) \right] \prod_j P(z_j|y_j; \theta^{(t)}) \\
     &= \sum_{z_1} \sum_{z_2} \cdots \sum_{z_n} \left[ \sum_i \log P(y_i,z_i;\theta) \right] \prod_j P(z_j|y_j; \theta^{(t)}) \\
-    &= \sum_i \sum_{z_1} \sum_{z_2} \left[ \prod_j P(z_j|y_j; \theta^{(t)}) \log P(y_i,z_i;\theta) \right] \\
+    &= \sum_i \sum_{z_1} \sum_{z_2} \cdots \sum_{z_n} \left[ \prod_j P(z_j|y_j; \theta^{(t)}) \log P(y_i,z_i;\theta) \right] \\
     &= \sum_i \sum_{z_i} \left[P(z_i|y_i; \theta^{(t)}) \log P(y_i,z_i;\theta) \right]
 \end{align*}
 在最后一步的推导过程中，关于$j$的概率连乘项通过前面的累加，只会保留下$j=i$的那一项。
