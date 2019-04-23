@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.5.11)  22 APR 2019 10:32
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.5.11)  23 APR 2019 09:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2118,37 +2118,37 @@ Package: CJKfntef 2015/04/18 4.8.4
 Package: xeCJK-listings 2018/04/07 v3.7.0 xeCJK patch file for listings
 \l__xeCJK_listings_max_char_int=\count459
 \l__xeCJK_listings_flag_int=\count460
-) (./Learning.aux (./body/PX4.aux) (./body/ros.aux) (./body/python.aux) (./body/estimator.aux) (./body/path.aux) (./body/planning.aux) (./body/cpp.aux) (./body/MachineLearning.aux) (./body/ReinforcementLearning.aux
+) (./Learning.aux (./body/PX4.aux) (./body/ros.aux) (./body/python.aux) (./body/estimator.aux) (./body/path.aux) (./body/planning.aux) (./body/cpp.aux) (./body/MachineLearning.aux) (./body/OutlierAnalysis.aux) (./body/ReinforcementLearning.aux
 
 LaTeX Warning: Label `eq: J2' multiply defined.
 
 ) (./body/probability.aux))
 \openout1 = `Learning.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Try loading font information for TU+ppl on input line 28.
-LaTeX Font Info:    No file TUppl.fd. on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Try loading font information for TU+ppl on input line 29.
+LaTeX Font Info:    No file TUppl.fd. on input line 29.
 
 
 LaTeX Font Warning: Font shape `TU/ppl/m/n' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 28.
+(Font)              using `TU/lmr/m/n' instead on input line 29.
 
 \AtBeginShipoutBox=\box94
 *geometry* driver: auto-detecting
@@ -2186,14 +2186,14 @@ LaTeX Font Warning: Font shape `TU/ppl/m/n' undefined
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-Package layouts Warning: Layout scale set to 0.5 on input line 28.
+Package layouts Warning: Layout scale set to 0.5 on input line 29.
 
 \c@lstlisting=\count461
 
 Package hyperref Warning: Height of page (\stockheight) is invalid (0.0pt),
 (hyperref)                using 11in.
 
-Package hyperref Info: Link coloring ON on input line 28.
+Package hyperref Info: Link coloring ON on input line 29.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -2202,14 +2202,14 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 \c@section@level=\count462
 LaTeX Info: Redefining \Ref on input line 515.
 )
-LaTeX Info: Redefining \ref on input line 28.
-LaTeX Info: Redefining \pageref on input line 28.
-LaTeX Info: Redefining \nameref on input line 28.
+LaTeX Info: Redefining \ref on input line 29.
+LaTeX Info: Redefining \pageref on input line 29.
+LaTeX Info: Redefining \nameref on input line 29.
  (./Learning.out) (./Learning.out)
 \@outlinefile=\write5
 \openout5 = `Learning.out'.
 
-LaTeX Info: Redefining \Ref on input line 28.
+LaTeX Info: Redefining \Ref on input line 29.
  ABD: EveryShipout initializing macros
 .................................................
 . fontspec info: "no-font-shape"
@@ -2935,7 +2935,7 @@ Overfull \hbox (3.22418pt too wide) detected at line 119
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 120
- \TU/ppl/m/n/12 71
+ \TU/ppl/m/n/12 72
  []
 
 
@@ -2945,7 +2945,7 @@ Overfull \hbox (3.22418pt too wide) detected at line 121
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 122
- \TU/ppl/m/n/12 73
+ \TU/ppl/m/n/12 72
  []
 
 
@@ -2955,7 +2955,7 @@ Overfull \hbox (3.22418pt too wide) detected at line 123
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 124
- \TU/ppl/m/n/12 73
+ \TU/ppl/m/n/12 74
  []
 
 
@@ -2965,12 +2965,12 @@ Overfull \hbox (3.22418pt too wide) detected at line 125
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 126
- \TU/ppl/m/n/12 76
+ \TU/ppl/m/n/12 74
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 127
- \TU/ppl/m/n/12 76
+ \TU/ppl/m/n/12 75
  []
 
 
@@ -2990,7 +2990,7 @@ Overfull \hbox (3.22418pt too wide) detected at line 130
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 131
- \TU/ppl/m/n/12 79
+ \TU/ppl/m/n/12 78
  []
 
 
@@ -3003,22 +3003,32 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
 Overfull \hbox (3.22418pt too wide) detected at line 133
- \TU/ppl/m/n/12 79
+ \TU/ppl/m/n/12 80
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 134
- \TU/ppl/m/n/12 79
+ \TU/ppl/m/n/12 80
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 135
- \TU/ppl/m/n/12 79
+ \TU/ppl/m/n/12 80
  []
 
 
 Overfull \hbox (3.22418pt too wide) detected at line 136
- \TU/ppl/m/n/12 79
+ \TU/ppl/m/n/12 80
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 137
+ \TU/ppl/m/n/12 80
+ []
+
+
+Overfull \hbox (3.22418pt too wide) detected at line 138
+ \TU/ppl/m/n/12 80
  []
 
 )
@@ -3029,7 +3039,7 @@ Overfull \hbox (3.22418pt too wide) detected at line 136
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \hskip 12.0pt
-(hyperref)                replaced by space on input line 44.
+(hyperref)                replaced by space on input line 45.
 
 [5] [6
 
@@ -3349,43 +3359,48 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: figures/UserCFandItemCF.png Graphic file (type bmp)
 <figures/UserCFandItemCF.png>
 ) [69] [70]
+\openout2 = `body/OutlierAnalysis.aux'.
+
+ (./body/OutlierAnalysis.tex
+\CJKnumber {9} 9.
+) [71
+
+
+
+]
 \openout2 = `body/ReinforcementLearning.aux'.
 
  (./body/ReinforcementLearning.tex
-\CJKnumber {9} 9.
+\CJKnumber {10} 10.
 File: figures/policy-iteration.png Graphic file (type bmp)
 <figures/policy-iteration.png>
 File: figures/value-iteration.png Graphic file (type bmp)
 <figures/value-iteration.png>
-[71
+[72
 
 
 
 ]
 File: figures/rl-algorithms.png Graphic file (type bmp)
 <figures/rl-algorithms.png>
- [72]
+ [73]
 File: figures/DQN.png Graphic file (type bmp)
 <figures/DQN.png>
- [73]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [74]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [75] [76]
+ [75]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [77]) [78]
+ [76] [77]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [78]) [79]
 \openout2 = `body/probability.aux'.
 
  (./body/probability.tex
-\CJKnumber {10} 10.
-) [79
-
-
-
-] [80
+\CJKnumber {11} 11.
+) [80
 
 
 
@@ -3393,13 +3408,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 \tf@thm=\write7
 \openout7 = `Learning.thm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 86.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 86.
- (./Learning.aux (./body/PX4.aux) (./body/ros.aux) (./body/python.aux) (./body/estimator.aux) (./body/path.aux) (./body/planning.aux) (./body/cpp.aux) (./body/MachineLearning.aux) (./body/ReinforcementLearning.aux) (./body/probability.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 86.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 86.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 88.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 88.
+ (./Learning.aux (./body/PX4.aux) (./body/ros.aux) (./body/python.aux) (./body/estimator.aux) (./body/path.aux) (./body/planning.aux) (./body/cpp.aux) (./body/MachineLearning.aux) (./body/OutlierAnalysis.aux) (./body/ReinforcementLearning.aux) (./body/probability.aux))
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 88.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 88.
 Package rerunfilecheck Info: File `Learning.out' has not changed.
-(rerunfilecheck)             Checksum: 35CE5CA662EF1BA6EA7E0A2A3A1E1B29.
+(rerunfilecheck)             Checksum: 32E6A5F215643B94A4F6D516627EBD98.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -3411,13 +3426,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 86.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 88.
  ) 
 Here is how much of TeX's memory you used:
- 43384 strings out of 492970
- 846836 string characters out of 6133938
- 1109202 words of memory out of 5000000
- 46499 multiletter control sequences out of 15000+600000
+ 43383 strings out of 492970
+ 846363 string characters out of 6133938
+ 1110577 words of memory out of 5000000
+ 46491 multiletter control sequences out of 15000+600000
  575313 words of font info for 201 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  57i,14n,93p,10474b,2230s stack positions out of 5000i,500n,10000p,200000b,80000s
